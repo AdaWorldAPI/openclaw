@@ -131,7 +131,7 @@ describe("OpenResponses Feature Parity", () => {
       const { CreateResponseBodySchema } = await import("./open-responses.schema.js");
 
       const validRequest = {
-        model: "claude-sonnet-4-20250514",
+        model: "claude-opus-4-5-20251101",
         input: [
           {
             type: "message" as const,
@@ -161,7 +161,7 @@ describe("OpenResponses Feature Parity", () => {
       const { CreateResponseBodySchema } = await import("./open-responses.schema.js");
 
       const validRequest = {
-        model: "claude-sonnet-4-20250514",
+        model: "claude-opus-4-5-20251101",
         input: [
           {
             type: "message" as const,
@@ -195,7 +195,7 @@ describe("OpenResponses Feature Parity", () => {
       const { CreateResponseBodySchema } = await import("./open-responses.schema.js");
 
       const validRequest = {
-        model: "claude-sonnet-4-20250514",
+        model: "claude-opus-4-5-20251101",
         input: [
           {
             type: "function_call_output" as const,
@@ -213,7 +213,7 @@ describe("OpenResponses Feature Parity", () => {
       const { CreateResponseBodySchema } = await import("./open-responses.schema.js");
 
       const turn1Request = {
-        model: "claude-sonnet-4-20250514",
+        model: "claude-opus-4-5-20251101",
         input: [
           {
             type: "message" as const,
@@ -237,7 +237,7 @@ describe("OpenResponses Feature Parity", () => {
 
       // Turn 2: Client provides tool output
       const turn2Request = {
-        model: "claude-sonnet-4-20250514",
+        model: "claude-opus-4-5-20251101",
         input: [
           {
             type: "function_call_output" as const,

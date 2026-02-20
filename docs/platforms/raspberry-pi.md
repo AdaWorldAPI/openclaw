@@ -253,7 +253,7 @@ Since the Pi is just the Gateway (models run in the cloud), use API-based models
   "agents": {
     "defaults": {
       "model": {
-        "primary": "anthropic/claude-sonnet-4-20250514",
+        "primary": "anthropic/claude-opus-4-5-20251101",
         "fallbacks": ["openai/gpt-4o-mini"]
       }
     }

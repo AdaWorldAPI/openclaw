@@ -642,11 +642,11 @@ Time format in system prompt. Default: `auto` (OS preference).
   agents: {
     defaults: {
       models: {
-        "anthropic/claude-opus-4-6": { alias: "opus" },
+        "anthropic/claude-opus-4-5": { alias: "opus" },
         "minimax/MiniMax-M2.1": { alias: "minimax" },
       },
       model: {
-        primary: "anthropic/claude-opus-4-6",
+        primary: "anthropic/claude-opus-4-5",
         fallbacks: ["minimax/MiniMax-M2.1"],
       },
       imageModel: {
@@ -665,7 +665,7 @@ Time format in system prompt. Default: `auto` (OS preference).
 }
 ```
 
-- `model.primary`: format `provider/model` (e.g. `anthropic/claude-opus-4-6`). If you omit the provider, OpenClaw assumes `anthropic` (deprecated).
+- `model.primary`: format `provider/model` (e.g. `anthropic/claude-opus-4-5`). If you omit the provider, OpenClaw assumes `anthropic` (deprecated).
 - `models`: the configured model catalog and allowlist for `/model`. Each entry can include `alias` (shortcut) and `params` (provider-specific: `temperature`, `maxTokens`).
 - `imageModel`: only used if the primary model lacks image input.
 - `maxConcurrent`: max parallel agent runs across sessions (each session still serialized). Default: 1.
@@ -674,8 +674,8 @@ Time format in system prompt. Default: `auto` (OS preference).
 
 | Alias          | Model                           |
 | -------------- | ------------------------------- |
-| `opus`         | `anthropic/claude-opus-4-6`     |
-| `sonnet`       | `anthropic/claude-sonnet-4-5`   |
+| `opus`         | `anthropic/claude-opus-4-5`     |
+| `sonnet`       | `anthropic/claude-opus-4-5`   |
 | `gpt`          | `openai/gpt-5.2`                |
 | `gpt-mini`     | `openai/gpt-5-mini`             |
 | `gemini`       | `google/gemini-3-pro-preview`   |
@@ -985,7 +985,7 @@ scripts/sandbox-browser-setup.sh   # optional browser image
         name: "Main Agent",
         workspace: "~/.openclaw/workspace",
         agentDir: "~/.openclaw/agents/main/agent",
-        model: "anthropic/claude-opus-4-6", // or { primary, fallbacks }
+        model: "anthropic/claude-opus-4-5", // or { primary, fallbacks }
         identity: {
           name: "Samantha",
           theme: "helpful sloth",
@@ -1248,8 +1248,8 @@ Resolution (most specific wins): account → channel → global. `""` disables a
 
 | Variable          | Description            | Example                     |
 | ----------------- | ---------------------- | --------------------------- |
-| `{model}`         | Short model name       | `claude-opus-4-6`           |
-| `{modelFull}`     | Full model identifier  | `anthropic/claude-opus-4-6` |
+| `{model}`         | Short model name       | `claude-opus-4-5`           |
+| `{modelFull}`     | Full model identifier  | `anthropic/claude-opus-4-5` |
 | `{provider}`      | Provider name          | `anthropic`                 |
 | `{thinkingLevel}` | Current thinking level | `high`, `low`, `off`        |
 | `{identity.name}` | Agent identity name    | (same as `"auto"`)          |
@@ -1687,8 +1687,8 @@ Use `cerebras/zai-glm-4.7` for Cerebras; `zai/glm-4.7` for Z.AI direct.
 {
   agents: {
     defaults: {
-      model: { primary: "opencode/claude-opus-4-6" },
-      models: { "opencode/claude-opus-4-6": { alias: "Opus" } },
+      model: { primary: "opencode/claude-opus-4-5" },
+      models: { "opencode/claude-opus-4-5": { alias: "Opus" } },
     },
   },
 }

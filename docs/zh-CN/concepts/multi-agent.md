@@ -214,7 +214,7 @@ openclaw agents list --bindings
         id: "chat",
         name: "Everyday",
         workspace: "~/.openclaw/workspace-chat",
-        model: "anthropic/claude-sonnet-4-5",
+        model: "anthropic/claude-opus-4-5",
       },
       {
         id: "opus",
@@ -248,7 +248,7 @@ openclaw agents list --bindings
         id: "chat",
         name: "Everyday",
         workspace: "~/.openclaw/workspace-chat",
-        model: "anthropic/claude-sonnet-4-5",
+        model: "anthropic/claude-opus-4-5",
       },
       {
         id: "opus",

@@ -183,7 +183,7 @@ export const VENICE_MODEL_CATALOG = [
 
   // Anthropic (via Venice)
   {
-    id: "claude-opus-45",
+    id: "claude-opus-4-5",
     name: "Claude Opus 4.5 (via Venice)",
     reasoning: true,
     input: ["text", "image"],
@@ -192,7 +192,7 @@ export const VENICE_MODEL_CATALOG = [
     privacy: "anonymized",
   },
   {
-    id: "claude-sonnet-45",
+    id: "claude-opus-4-5",
     name: "Claude Sonnet 4.5 (via Venice)",
     reasoning: true,
     input: ["text", "image"],

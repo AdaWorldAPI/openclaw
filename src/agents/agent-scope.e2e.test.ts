@@ -40,7 +40,7 @@ describe("resolveAgentConfig", () => {
             name: "Main Agent",
             workspace: "~/openclaw",
             agentDir: "~/.openclaw/agents/main",
-            model: "anthropic/claude-opus-4",
+            model: "anthropic/claude-opus-4-5",
           },
         ],
       },
@@ -50,7 +50,7 @@ describe("resolveAgentConfig", () => {
       name: "Main Agent",
       workspace: "~/openclaw",
       agentDir: "~/.openclaw/agents/main",
-      model: "anthropic/claude-opus-4",
+      model: "anthropic/claude-opus-4-5",
       identity: undefined,
       groupChat: undefined,
       subagents: undefined,
@@ -64,7 +64,7 @@ describe("resolveAgentConfig", () => {
       agents: {
         defaults: {
           model: {
-            primary: "anthropic/claude-sonnet-4",
+            primary: "anthropic/claude-opus-4-5",
             fallbacks: ["openai/gpt-4.1"],
           },
         },
@@ -72,7 +72,7 @@ describe("resolveAgentConfig", () => {
           {
             id: "linus",
             model: {
-              primary: "anthropic/claude-opus-4",
+              primary: "anthropic/claude-opus-4-5",
               fallbacks: ["openai/gpt-5.2"],
             },
           },
@@ -80,7 +80,7 @@ describe("resolveAgentConfig", () => {
       },
     };
 
-    expect(resolveAgentModelPrimary(cfg, "linus")).toBe("anthropic/claude-opus-4");
+    expect(resolveAgentModelPrimary(cfg, "linus")).toBe("anthropic/claude-opus-4-5");
     expect(resolveAgentModelFallbacksOverride(cfg, "linus")).toEqual(["openai/gpt-5.2"]);
 
     // If fallbacks isn't present, we don't override the global fallbacks.
@@ -90,7 +90,7 @@ describe("resolveAgentConfig", () => {
           {
             id: "linus",
             model: {
-              primary: "anthropic/claude-opus-4",
+              primary: "anthropic/claude-opus-4-5",
             },
           },
         ],
@@ -105,7 +105,7 @@ describe("resolveAgentConfig", () => {
           {
             id: "linus",
             model: {
-              primary: "anthropic/claude-opus-4",
+              primary: "anthropic/claude-opus-4-5",
               fallbacks: [],
             },
           },
@@ -147,7 +147,7 @@ describe("resolveAgentConfig", () => {
           {
             id: "linus",
             model: {
-              primary: "anthropic/claude-opus-4",
+              primary: "anthropic/claude-opus-4-5",
             },
           },
         ],

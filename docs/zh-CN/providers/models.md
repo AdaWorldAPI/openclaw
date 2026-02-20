@@ -22,7 +22,7 @@ OpenClaw 可以使用许多 LLM 提供商。选择一个，进行认证，然后
 Venice 是我们推荐的 Venice AI 设置，用于隐私优先的推理，并可选择使用 Opus 处理最困难的任务。
 
 - 默认：`venice/llama-3.3-70b`
-- 最佳综合：`venice/claude-opus-45`（Opus 仍然是最强的）
+- 最佳综合：`venice/claude-opus-4-5`（Opus 仍然是最强的）
 
 参见 [Venice AI](/providers/venice)。
 

@@ -148,8 +148,8 @@ cat > /data/openclaw.json << 'EOF'
   "agents": {
     "defaults": {
       "model": {
-        "primary": "anthropic/claude-opus-4-6",
-        "fallbacks": ["anthropic/claude-sonnet-4-5", "openai/gpt-4o"]
+        "primary": "anthropic/claude-opus-4-5",
+        "fallbacks": ["anthropic/claude-opus-4-5", "openai/gpt-4o"]
       },
       "maxConcurrent": 4
     },

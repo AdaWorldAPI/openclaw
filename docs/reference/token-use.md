@@ -99,9 +99,9 @@ prompt caching pricing for the latest rates and TTL multipliers:
 agents:
   defaults:
     model:
-      primary: "anthropic/claude-opus-4-6"
+      primary: "anthropic/claude-opus-4-5"
     models:
-      "anthropic/claude-opus-4-6":
+      "anthropic/claude-opus-4-5":
         params:
           cacheRetention: "long"
     heartbeat:
@@ -118,7 +118,7 @@ or Sonnet models.
 agents:
   defaults:
     models:
-      "anthropic/claude-opus-4-6":
+      "anthropic/claude-opus-4-5":
         params:
           context1m: true
 ```

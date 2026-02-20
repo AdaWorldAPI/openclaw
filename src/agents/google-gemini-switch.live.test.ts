@@ -35,7 +35,7 @@ describeLive("gemini live switch", () => {
             ],
             api: "google-gemini-cli",
             provider: "google-antigravity",
-            model: "claude-sonnet-4-20250514",
+            model: "claude-opus-4-5-20251101",
             usage: {
               input: 0,
               output: 0,

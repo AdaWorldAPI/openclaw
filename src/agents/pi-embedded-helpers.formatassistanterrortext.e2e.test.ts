@@ -83,9 +83,9 @@ describe("formatAssistantErrorText", () => {
   });
   it("uses the active assistant model for billing message context", () => {
     const msg = makeAssistantError("insufficient credits");
-    msg.model = "claude-3-5-sonnet";
+    msg.model = "claude-opus-4-5-20251101";
     const result = formatAssistantErrorText(msg, { provider: "Anthropic" });
-    expect(result).toBe(formatBillingErrorMessage("Anthropic", "claude-3-5-sonnet"));
+    expect(result).toBe(formatBillingErrorMessage("Anthropic", "claude-opus-4-5-20251101"));
   });
   it("returns generic billing message when provider is not given", () => {
     const msg = makeAssistantError("insufficient credits");

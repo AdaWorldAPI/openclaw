@@ -16,7 +16,7 @@ export const DEFAULT_TEST_MODEL_CATALOG: Array<{
   provider: string;
 }> = [
   { id: "claude-opus-4-5", name: "Opus 4.5", provider: "anthropic" },
-  { id: "claude-sonnet-4-1", name: "Sonnet 4.1", provider: "anthropic" },
+  { id: "claude-opus-4-5", name: "Sonnet 4.1", provider: "anthropic" },
   { id: "gpt-4.1-mini", name: "GPT-4.1 Mini", provider: "openai" },
 ];
 

@@ -18,7 +18,7 @@ Looking for chat channel docs (WhatsApp/Telegram/Discord/Slack/Mattermost (plugi
 Venice is our recommended Venice AI setup for privacy-first inference with an option to use Opus for hard tasks.
 
 - Default: `venice/llama-3.3-70b`
-- Best overall: `venice/claude-opus-45` (Opus remains the strongest)
+- Best overall: `venice/claude-opus-4-5` (Opus remains the strongest)
 
 See [Venice AI](/providers/venice).
 
@@ -29,7 +29,7 @@ See [Venice AI](/providers/venice).
 
 ```json5
 {
-  agents: { defaults: { model: { primary: "anthropic/claude-opus-4-6" } } },
+  agents: { defaults: { model: { primary: "anthropic/claude-opus-4-5" } } },
 }
 ```
 

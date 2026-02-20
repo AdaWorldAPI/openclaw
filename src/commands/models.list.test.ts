@@ -193,7 +193,7 @@ describe("models list/status", () => {
     setup?: () => void;
     expectedErrorDetail: string;
   }) {
-    configureGoogleAntigravityModel("claude-opus-4-6-thinking");
+    configureGoogleAntigravityModel("claude-opus-4-5-thinking");
     enableGoogleAntigravityAuthProfile();
     const runtime = makeRuntime();
 
@@ -208,7 +208,7 @@ describe("models list/status", () => {
     expect(runtime.error.mock.calls[0]?.[0]).toContain("falling back to auth heuristics");
     expect(runtime.error.mock.calls[0]?.[0]).toContain(params.expectedErrorDetail);
     const payload = parseJsonLog(runtime);
-    expect(payload.models[0]?.key).toBe("google-antigravity/claude-opus-4-6-thinking");
+    expect(payload.models[0]?.key).toBe("google-antigravity/claude-opus-4-5-thinking");
     expect(payload.models[0]?.missing).toBe(false);
     expect(payload.models[0]?.available).toBe(true);
   }
@@ -332,17 +332,17 @@ describe("models list/status", () => {
   it.each([
     {
       name: "thinking",
-      configuredModelId: "claude-opus-4-6-thinking",
+      configuredModelId: "claude-opus-4-5-thinking",
       templateId: "claude-opus-4-5-thinking",
       templateName: "Claude Opus 4.5 Thinking",
-      expectedKey: "google-antigravity/claude-opus-4-6-thinking",
+      expectedKey: "google-antigravity/claude-opus-4-5-thinking",
     },
     {
       name: "non-thinking",
-      configuredModelId: "claude-opus-4-6",
+      configuredModelId: "claude-opus-4-5",
       templateId: "claude-opus-4-5",
       templateName: "Claude Opus 4.5",
-      expectedKey: "google-antigravity/claude-opus-4-6",
+      expectedKey: "google-antigravity/claude-opus-4-5",
     },
   ] as const)(
     "models list resolves antigravity opus 4.6 $name from 4.5 template",
@@ -363,17 +363,17 @@ describe("models list/status", () => {
   it.each([
     {
       name: "thinking",
-      configuredModelId: "claude-opus-4-6-thinking",
+      configuredModelId: "claude-opus-4-5-thinking",
       templateId: "claude-opus-4-5-thinking",
       templateName: "Claude Opus 4.5 Thinking",
-      expectedKey: "google-antigravity/claude-opus-4-6-thinking",
+      expectedKey: "google-antigravity/claude-opus-4-5-thinking",
     },
     {
       name: "non-thinking",
-      configuredModelId: "claude-opus-4-6",
+      configuredModelId: "claude-opus-4-5",
       templateId: "claude-opus-4-5",
       templateName: "Claude Opus 4.5",
-      expectedKey: "google-antigravity/claude-opus-4-6",
+      expectedKey: "google-antigravity/claude-opus-4-5",
     },
   ] as const)(
     "models list marks synthesized antigravity opus 4.6 $name as available when template is available",
@@ -393,13 +393,13 @@ describe("models list/status", () => {
 
   it("models list prefers registry availability over provider auth heuristics", async () => {
     const payload = await runGoogleAntigravityListCase({
-      configuredModelId: "claude-opus-4-6-thinking",
+      configuredModelId: "claude-opus-4-5-thinking",
       templateId: "claude-opus-4-5-thinking",
       templateName: "Claude Opus 4.5 Thinking",
       withAuthProfile: true,
     });
     expectAntigravityModel(payload, {
-      key: "google-antigravity/claude-opus-4-6-thinking",
+      key: "google-antigravity/claude-opus-4-5-thinking",
       available: false,
     });
     listProfilesForProvider.mockReturnValue([]);
@@ -438,7 +438,7 @@ describe("models list/status", () => {
   });
 
   it("models list does not treat availability-unavailable code as discovery fallback", async () => {
-    configureGoogleAntigravityModel("claude-opus-4-6-thinking");
+    configureGoogleAntigravityModel("claude-opus-4-5-thinking");
     modelRegistryState.getAllError = Object.assign(new Error("model discovery failed"), {
       code: "MODEL_AVAILABILITY_UNAVAILABLE",
     });
@@ -454,7 +454,7 @@ describe("models list/status", () => {
   });
 
   it("models list fails fast when registry model discovery is unavailable", async () => {
-    configureGoogleAntigravityModel("claude-opus-4-6-thinking");
+    configureGoogleAntigravityModel("claude-opus-4-5-thinking");
     enableGoogleAntigravityAuthProfile();
     modelRegistryState.getAllError = Object.assign(new Error("model discovery unavailable"), {
       code: "MODEL_DISCOVERY_UNAVAILABLE",
@@ -486,10 +486,10 @@ describe("models list/status", () => {
   it("toModelRow does not crash without cfg/authStore when availability is undefined", async () => {
     const row = toModelRow({
       model: makeGoogleAntigravityTemplate(
-        "claude-opus-4-6-thinking",
+        "claude-opus-4-5-thinking",
         "Claude Opus 4.6 Thinking",
       ) as never,
-      key: "google-antigravity/claude-opus-4-6-thinking",
+      key: "google-antigravity/claude-opus-4-5-thinking",
       tags: [],
       availableKeys: undefined,
     });

@@ -1782,7 +1782,7 @@ agents.defaults.model.primary
 ### 推荐什么模型
 
 **推荐默认：** `anthropic/claude-opus-4-5`。
-**好的替代：** `anthropic/claude-sonnet-4-5`。
+**好的替代：** `anthropic/claude-opus-4-5`。
 **可靠（个性较少）：** `openai/gpt-5.2`——几乎和 Opus 一样好，只是个性较少。
 **经济：** `zai/glm-4.7`。
 
@@ -1945,7 +1945,7 @@ Model "provider/model" is not allowed. Use /model to list available models.
 是的。OpenClaw 内置了一些默认简写（仅在模型存在于 `agents.defaults.models` 中时应用）：
 
 - `opus` → `anthropic/claude-opus-4-5`
-- `sonnet` → `anthropic/claude-sonnet-4-5`
+- `sonnet` → `anthropic/claude-opus-4-5`
 - `gpt` → `openai/gpt-5.2`
 - `gpt-mini` → `openai/gpt-5-mini`
 - `gemini` → `google/gemini-3-pro-preview`
@@ -1964,8 +1964,8 @@ Model "provider/model" is not allowed. Use /model to list available models.
       model: { primary: "anthropic/claude-opus-4-5" },
       models: {
         "anthropic/claude-opus-4-5": { alias: "opus" },
-        "anthropic/claude-sonnet-4-5": { alias: "sonnet" },
-        "anthropic/claude-haiku-4-5": { alias: "haiku" },
+        "anthropic/claude-opus-4-5": { alias: "sonnet" },
+        "anthropic/claude-opus-4-5": { alias: "haiku" },
       },
     },
   },
@@ -1982,8 +1982,8 @@ OpenRouter（按令牌付费；多种模型）：
 {
   agents: {
     defaults: {
-      model: { primary: "openrouter/anthropic/claude-sonnet-4-5" },
-      models: { "openrouter/anthropic/claude-sonnet-4-5": {} },
+      model: { primary: "openrouter/anthropic/claude-opus-4-5" },
+      models: { "openrouter/anthropic/claude-opus-4-5": {} },
     },
   },
   env: { OPENROUTER_API_KEY: "sk-or-..." },
@@ -2621,7 +2621,7 @@ OpenClaw 默认阻止**跨提供商**消息。如果工具调用绑定到 Telegr
 
 **问：“使用 API 密钥时 Anthropic 的默认模型是什么？”**
 
-**答：** 在 OpenClaw 中，凭据和模型选择是分开的。设置 `ANTHROPIC_API_KEY`（或在认证配置文件中存储 Anthropic API 密钥）启用认证，但实际的默认模型是你在 `agents.defaults.model.primary` 中配置的（例如 `anthropic/claude-sonnet-4-5` 或 `anthropic/claude-opus-4-5`）。如果你看到 `No credentials found for profile "anthropic:default"`，意味着 Gateway 网关在正在运行的智能体的预期 `auth-profiles.json` 中找不到 Anthropic 凭据。
+**答：** 在 OpenClaw 中，凭据和模型选择是分开的。设置 `ANTHROPIC_API_KEY`（或在认证配置文件中存储 Anthropic API 密钥）启用认证，但实际的默认模型是你在 `agents.defaults.model.primary` 中配置的（例如 `anthropic/claude-opus-4-5` 或 `anthropic/claude-opus-4-5`）。如果你看到 `No credentials found for profile "anthropic:default"`，意味着 Gateway 网关在正在运行的智能体的预期 `auth-profiles.json` 中找不到 Anthropic 凭据。
 
 ---
 

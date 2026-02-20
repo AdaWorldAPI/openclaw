@@ -16,7 +16,7 @@ async function applySubagentModelPatch(cfg: OpenClawConfig) {
       model: SUBAGENT_MODEL,
     },
     loadGatewayModelCatalog: async () => [
-      { provider: "anthropic", id: "claude-sonnet-4-6", name: "sonnet" },
+      { provider: "anthropic", id: "claude-opus-4-5", name: "sonnet" },
       { provider: "synthetic", id: "hf:moonshotai/Kimi-K2.5", name: "kimi" },
     ],
   });
@@ -35,12 +35,12 @@ function makeKimiSubagentCfg(params: {
   return {
     agents: {
       defaults: {
-        model: { primary: "anthropic/claude-sonnet-4-6" },
+        model: { primary: "anthropic/claude-opus-4-5" },
         subagents: params.defaultsSubagentModel
           ? { model: params.defaultsSubagentModel }
           : undefined,
         models: {
-          "anthropic/claude-sonnet-4-6": { alias: "default" },
+          "anthropic/claude-opus-4-5": { alias: "default" },
         },
       },
       list: [
@@ -295,7 +295,7 @@ describe("gateway sessions patch", () => {
 
   test("allows target agent subagents.model for subagent session even when missing from global allowlist", async () => {
     const cfg = makeKimiSubagentCfg({
-      agentPrimaryModel: "anthropic/claude-sonnet-4-6",
+      agentPrimaryModel: "anthropic/claude-opus-4-5",
       agentSubagentModel: SUBAGENT_MODEL,
     });
 
@@ -306,7 +306,7 @@ describe("gateway sessions patch", () => {
 
   test("allows global defaults.subagents.model for subagent session even when missing from global allowlist", async () => {
     const cfg = makeKimiSubagentCfg({
-      agentPrimaryModel: "anthropic/claude-sonnet-4-6",
+      agentPrimaryModel: "anthropic/claude-opus-4-5",
       defaultsSubagentModel: SUBAGENT_MODEL,
     });
 

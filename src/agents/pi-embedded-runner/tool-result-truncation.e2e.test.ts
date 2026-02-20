@@ -34,7 +34,7 @@ function makeAssistantMessage(text: string): AgentMessage {
     content: [{ type: "text", text }],
     api: "messages",
     provider: "anthropic",
-    model: "claude-sonnet-4-20250514",
+    model: "claude-opus-4-5-20251101",
     usage: {
       inputTokens: 0,
       outputTokens: 0,

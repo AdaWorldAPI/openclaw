@@ -224,7 +224,7 @@ describe("resolveSessionModelRef", () => {
     const cfg = {
       agents: {
         defaults: {
-          model: { primary: "anthropic/claude-opus-4-6" },
+          model: { primary: "anthropic/claude-opus-4-5" },
         },
       },
     } as OpenClawConfig;
@@ -234,7 +234,7 @@ describe("resolveSessionModelRef", () => {
       updatedAt: Date.now(),
       modelProvider: "openai-codex",
       model: "gpt-5.3-codex",
-      modelOverride: "claude-opus-4-6",
+      modelOverride: "claude-opus-4-5",
       providerOverride: "anthropic",
     });
 
@@ -245,7 +245,7 @@ describe("resolveSessionModelRef", () => {
     const cfg = {
       agents: {
         defaults: {
-          model: { primary: "anthropic/claude-opus-4-6" },
+          model: { primary: "anthropic/claude-opus-4-5" },
         },
       },
     } as OpenClawConfig;

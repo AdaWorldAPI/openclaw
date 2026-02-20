@@ -152,7 +152,7 @@ const result = await runEmbeddedPiAgent({
   config: openclawConfig,
   prompt: "Hello, how are you?",
   provider: "anthropic",
-  model: "claude-sonnet-4-20250514",
+  model: "claude-opus-4-5-20251101",
   timeoutMs: 120_000,
   runId: "run-abc",
   onBlockReply: async (payload) => {

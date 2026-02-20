@@ -3,12 +3,12 @@ import { buildCopilotModelDefinition, getDefaultCopilotModelIds } from "./github
 
 describe("github-copilot-models", () => {
   describe("getDefaultCopilotModelIds", () => {
-    it("includes claude-sonnet-4.6", () => {
-      expect(getDefaultCopilotModelIds()).toContain("claude-sonnet-4.6");
+    it("includes claude-opus-4.5", () => {
+      expect(getDefaultCopilotModelIds()).toContain("claude-opus-4.5");
     });
 
-    it("includes claude-sonnet-4.5", () => {
-      expect(getDefaultCopilotModelIds()).toContain("claude-sonnet-4.5");
+    it("includes claude-opus-4.5", () => {
+      expect(getDefaultCopilotModelIds()).toContain("claude-opus-4.5");
     });
 
     it("returns a mutable copy", () => {
@@ -20,9 +20,9 @@ describe("github-copilot-models", () => {
   });
 
   describe("buildCopilotModelDefinition", () => {
-    it("builds a valid definition for claude-sonnet-4.6", () => {
-      const def = buildCopilotModelDefinition("claude-sonnet-4.6");
-      expect(def.id).toBe("claude-sonnet-4.6");
+    it("builds a valid definition for claude-opus-4.5", () => {
+      const def = buildCopilotModelDefinition("claude-opus-4.5");
+      expect(def.id).toBe("claude-opus-4.5");
       expect(def.api).toBe("openai-responses");
     });
 

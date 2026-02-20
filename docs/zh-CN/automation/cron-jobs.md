@@ -157,7 +157,7 @@ Cron 表达式使用 `croner`。如果省略时区，将使用 Gateway网关主�
 
 隔离任务（`agentTurn`）可以覆盖模型和思维级别：
 
-- `model`：提供商/模型字符串（例如 `anthropic/claude-sonnet-4-20250514`）或别名（例如 `opus`）
+- `model`：提供商/模型字符串（例如 `anthropic/claude-opus-4-5-20251101`）或别名（例如 `opus`）
 - `thinking`：思维级别（`off`、`minimal`、`low`、`medium`、`high`、`xhigh`；仅限 GPT-5.2 + Codex 模型）
 
 注意：你也可以在主会话任务上设置 `model`，但这会更改共享的主会话模型。我们建议仅对隔离任务使用模型覆盖，以避免意外的上下文切换。

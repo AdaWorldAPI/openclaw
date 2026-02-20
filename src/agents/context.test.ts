@@ -8,30 +8,30 @@ describe("applyDiscoveredContextWindows", () => {
     applyDiscoveredContextWindows({
       cache,
       models: [
-        { id: "claude-sonnet-4-5", contextWindow: 1_000_000 },
-        { id: "claude-sonnet-4-5", contextWindow: 200_000 },
+        { id: "claude-opus-4-5", contextWindow: 1_000_000 },
+        { id: "claude-opus-4-5", contextWindow: 200_000 },
       ],
     });
 
-    expect(cache.get("claude-sonnet-4-5")).toBe(200_000);
+    expect(cache.get("claude-opus-4-5")).toBe(200_000);
   });
 });
 
 describe("applyConfiguredContextWindows", () => {
   it("overrides discovered cache values with explicit models.providers contextWindow", () => {
-    const cache = new Map<string, number>([["anthropic/claude-opus-4-6", 1_000_000]]);
+    const cache = new Map<string, number>([["anthropic/claude-opus-4-5", 1_000_000]]);
     applyConfiguredContextWindows({
       cache,
       modelsConfig: {
         providers: {
           openrouter: {
-            models: [{ id: "anthropic/claude-opus-4-6", contextWindow: 200_000 }],
+            models: [{ id: "anthropic/claude-opus-4-5", contextWindow: 200_000 }],
           },
         },
       },
     });
 
-    expect(cache.get("anthropic/claude-opus-4-6")).toBe(200_000);
+    expect(cache.get("anthropic/claude-opus-4-5")).toBe(200_000);
   });
 
   it("adds config-only model context windows and ignores invalid entries", () => {

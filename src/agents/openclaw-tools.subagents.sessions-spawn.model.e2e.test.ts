@@ -117,7 +117,7 @@ describe("openclaw-tools: subagents (sessions_spawn model + thinking)", () => {
     const result = await tool.execute("call3", {
       task: "do thing",
       runTimeoutSeconds: 1,
-      model: "claude-haiku-4-5",
+      model: "claude-opus-4-5",
       cleanup: "keep",
     });
     expect(result.details).toMatchObject({
@@ -136,7 +136,7 @@ describe("openclaw-tools: subagents (sessions_spawn model + thinking)", () => {
     );
     expect(patchCall?.params).toMatchObject({
       key: expect.stringContaining("subagent:"),
-      model: "claude-haiku-4-5",
+      model: "claude-opus-4-5",
     });
   });
 

@@ -31,7 +31,7 @@ describe("compaction retry integration", () => {
 
   const testModel = {
     provider: "anthropic",
-    model: "claude-3-opus",
+    model: "claude-opus-4-5",
   } as unknown as NonNullable<ExtensionContext["model"]>;
 
   it("should successfully call generateSummary with retry wrapper", async () => {

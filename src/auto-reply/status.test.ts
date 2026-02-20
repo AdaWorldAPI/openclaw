@@ -202,9 +202,9 @@ describe("buildStatusMessage", () => {
         providerOverride: "openai",
         modelOverride: "gpt-4.1-mini",
         modelProvider: "anthropic",
-        model: "claude-haiku-4-5",
+        model: "claude-opus-4-5",
         fallbackNoticeSelectedModel: "openai/gpt-4.1-mini",
-        fallbackNoticeActiveModel: "anthropic/claude-haiku-4-5",
+        fallbackNoticeActiveModel: "anthropic/claude-opus-4-5",
         fallbackNoticeReason: "rate limit",
         contextTokens: 32_000,
       },
@@ -217,7 +217,7 @@ describe("buildStatusMessage", () => {
 
     const normalized = normalizeTestText(text);
     expect(normalized).toContain("Model: openai/gpt-4.1-mini");
-    expect(normalized).toContain("Fallback: anthropic/claude-haiku-4-5");
+    expect(normalized).toContain("Fallback: anthropic/claude-opus-4-5");
     expect(normalized).toContain("(rate limit)");
     expect(normalized).not.toContain(" - Reason:");
     expect(normalized).not.toContain("Active:");
@@ -234,7 +234,7 @@ describe("buildStatusMessage", () => {
         sessionId: "runtime-drift-only",
         updatedAt: 0,
         modelProvider: "anthropic",
-        model: "claude-haiku-4-5",
+        model: "claude-opus-4-5",
         fallbackNoticeSelectedModel: "fireworks/minimax-m2p5",
         fallbackNoticeActiveModel: "deepinfra/moonshotai/Kimi-K2.5",
         fallbackNoticeReason: "rate limit",
@@ -278,14 +278,14 @@ describe("buildStatusMessage", () => {
   it("keeps provider prefix from configured model", () => {
     const text = buildStatusMessage({
       agent: {
-        model: "google-antigravity/claude-sonnet-4-5",
+        model: "google-antigravity/claude-opus-4-5",
       },
       sessionScope: "per-sender",
       queue: { mode: "collect", depth: 0 },
       modelAuth: "api-key",
     });
 
-    expect(normalizeTestText(text)).toContain("Model: google-antigravity/claude-sonnet-4-5");
+    expect(normalizeTestText(text)).toContain("Model: google-antigravity/claude-opus-4-5");
   });
 
   it("handles missing agent config gracefully", () => {

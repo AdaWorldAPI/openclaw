@@ -434,7 +434,7 @@ describe("applyAuthChoice", () => {
     );
     expect(result.config.agents?.defaults?.model?.primary).toBe("anthropic/claude-opus-4-5");
     expect(result.config.models?.providers?.["opencode-zen"]).toBeUndefined();
-    expect(result.agentModelOverride).toBe("opencode/claude-opus-4-6");
+    expect(result.agentModelOverride).toBe("opencode/claude-opus-4-5");
   });
 
   it("does not persist literal 'undefined' when API key prompts return undefined", async () => {
@@ -602,7 +602,7 @@ describe("applyAuthChoice", () => {
       mode: "api_key",
     });
     expect(result.config.agents?.defaults?.model?.primary).toBe(
-      "vercel-ai-gateway/anthropic/claude-opus-4.6",
+      "vercel-ai-gateway/anthropic/claude-opus-4.5",
     );
 
     expect((await readAuthProfile("vercel-ai-gateway:default"))?.key).toBe("gateway-test-key");
@@ -640,7 +640,7 @@ describe("applyAuthChoice", () => {
       mode: "api_key",
     });
     expect(result.config.agents?.defaults?.model?.primary).toBe(
-      "cloudflare-ai-gateway/claude-sonnet-4-5",
+      "cloudflare-ai-gateway/claude-opus-4-5",
     );
 
     expect((await readAuthProfile("cloudflare-ai-gateway:default"))?.key).toBe(

@@ -191,7 +191,7 @@ describe("resolveModel", () => {
     });
   });
 
-  it("builds an anthropic forward-compat fallback for claude-opus-4-6", () => {
+  it("builds an anthropic forward-compat fallback for claude-opus-4-5", () => {
     mockDiscoveredModel({
       provider: "anthropic",
       modelId: "claude-opus-4-5",
@@ -206,10 +206,10 @@ describe("resolveModel", () => {
 
     expectResolvedForwardCompatFallback({
       provider: "anthropic",
-      id: "claude-opus-4-6",
+      id: "claude-opus-4-5",
       expectedModel: {
         provider: "anthropic",
-        id: "claude-opus-4-6",
+        id: "claude-opus-4-5",
         api: "anthropic-messages",
         baseUrl: "https://api.anthropic.com",
         reasoning: true,
@@ -217,12 +217,12 @@ describe("resolveModel", () => {
     });
   });
 
-  it("builds an anthropic forward-compat fallback for claude-sonnet-4-6", () => {
+  it("builds an anthropic forward-compat fallback for claude-opus-4-5", () => {
     mockDiscoveredModel({
       provider: "anthropic",
-      modelId: "claude-sonnet-4-5",
+      modelId: "claude-opus-4-5",
       templateModel: buildForwardCompatTemplate({
-        id: "claude-sonnet-4-5",
+        id: "claude-opus-4-5",
         name: "Claude Sonnet 4.5",
         provider: "anthropic",
         api: "anthropic-messages",
@@ -232,10 +232,10 @@ describe("resolveModel", () => {
 
     expectResolvedForwardCompatFallback({
       provider: "anthropic",
-      id: "claude-sonnet-4-6",
+      id: "claude-opus-4-5",
       expectedModel: {
         provider: "anthropic",
-        id: "claude-sonnet-4-6",
+        id: "claude-opus-4-5",
         api: "anthropic-messages",
         baseUrl: "https://api.anthropic.com",
         reasoning: true,
@@ -243,7 +243,7 @@ describe("resolveModel", () => {
     });
   });
 
-  it("builds an antigravity forward-compat fallback for claude-opus-4-6-thinking", () => {
+  it("builds an antigravity forward-compat fallback for claude-opus-4-5-thinking", () => {
     mockDiscoveredModel({
       provider: "google-antigravity",
       modelId: "claude-opus-4-5-thinking",
@@ -258,10 +258,10 @@ describe("resolveModel", () => {
 
     expectResolvedForwardCompatFallback({
       provider: "google-antigravity",
-      id: "claude-opus-4-6-thinking",
+      id: "claude-opus-4-5-thinking",
       expectedModel: {
         provider: "google-antigravity",
-        id: "claude-opus-4-6-thinking",
+        id: "claude-opus-4-5-thinking",
         api: "google-gemini-cli",
         baseUrl: "https://daily-cloudcode-pa.sandbox.googleapis.com",
         reasoning: true,
@@ -271,7 +271,7 @@ describe("resolveModel", () => {
     });
   });
 
-  it("builds an antigravity forward-compat fallback for claude-opus-4-6", () => {
+  it("builds an antigravity forward-compat fallback for claude-opus-4-5", () => {
     mockDiscoveredModel({
       provider: "google-antigravity",
       modelId: "claude-opus-4-5",
@@ -286,10 +286,10 @@ describe("resolveModel", () => {
 
     expectResolvedForwardCompatFallback({
       provider: "google-antigravity",
-      id: "claude-opus-4-6",
+      id: "claude-opus-4-5",
       expectedModel: {
         provider: "google-antigravity",
-        id: "claude-opus-4-6",
+        id: "claude-opus-4-5",
         api: "google-gemini-cli",
         baseUrl: "https://daily-cloudcode-pa.sandbox.googleapis.com",
         reasoning: true,
@@ -329,11 +329,11 @@ describe("resolveModel", () => {
   });
 
   it("keeps unknown-model errors when no antigravity thinking template exists", () => {
-    expectUnknownModelError("google-antigravity", "claude-opus-4-6-thinking");
+    expectUnknownModelError("google-antigravity", "claude-opus-4-5-thinking");
   });
 
   it("keeps unknown-model errors when no antigravity non-thinking template exists", () => {
-    expectUnknownModelError("google-antigravity", "claude-opus-4-6");
+    expectUnknownModelError("google-antigravity", "claude-opus-4-5");
   });
 
   it("keeps unknown-model errors for non-gpt-5 openai-codex ids", () => {

@@ -15,7 +15,7 @@ describe("cacheRetention default behavior", () => {
     const agent: { streamFn?: StreamFn } = {};
     const cfg = undefined;
     const provider = "anthropic";
-    const modelId = "claude-3-sonnet";
+    const modelId = "claude-opus-4-5";
 
     applyExtraParamsToAgent(agent, cfg, provider, modelId);
 
@@ -33,7 +33,7 @@ describe("cacheRetention default behavior", () => {
       agents: {
         defaults: {
           models: {
-            "anthropic/claude-3-sonnet": {
+            "anthropic/claude-opus-4-5": {
               params: {
                 cacheRetention: "none" as const,
               },
@@ -43,7 +43,7 @@ describe("cacheRetention default behavior", () => {
       },
     };
     const provider = "anthropic";
-    const modelId = "claude-3-sonnet";
+    const modelId = "claude-opus-4-5";
 
     applyExtraParamsToAgent(agent, cfg, provider, modelId);
 
@@ -57,7 +57,7 @@ describe("cacheRetention default behavior", () => {
       agents: {
         defaults: {
           models: {
-            "anthropic/claude-3-opus": {
+            "anthropic/claude-opus-4-5": {
               params: {
                 cacheRetention: "long" as const,
               },
@@ -67,7 +67,7 @@ describe("cacheRetention default behavior", () => {
       },
     };
     const provider = "anthropic";
-    const modelId = "claude-3-opus";
+    const modelId = "claude-opus-4-5";
 
     applyExtraParamsToAgent(agent, cfg, provider, modelId);
 
@@ -81,7 +81,7 @@ describe("cacheRetention default behavior", () => {
       agents: {
         defaults: {
           models: {
-            "anthropic/claude-3-haiku": {
+            "anthropic/claude-opus-4-5": {
               params: {
                 cacheControlTtl: "1h",
               },
@@ -91,7 +91,7 @@ describe("cacheRetention default behavior", () => {
       },
     };
     const provider = "anthropic";
-    const modelId = "claude-3-haiku";
+    const modelId = "claude-opus-4-5";
 
     applyExtraParamsToAgent(agent, cfg, provider, modelId);
 
@@ -118,7 +118,7 @@ describe("cacheRetention default behavior", () => {
       agents: {
         defaults: {
           models: {
-            "anthropic/claude-3-sonnet": {
+            "anthropic/claude-opus-4-5": {
               params: {
                 cacheRetention: "long" as const,
                 temperature: 0.7,
@@ -129,7 +129,7 @@ describe("cacheRetention default behavior", () => {
       },
     };
     const provider = "anthropic";
-    const modelId = "claude-3-sonnet";
+    const modelId = "claude-opus-4-5";
 
     applyExtraParamsToAgent(agent, cfg, provider, modelId);
 
@@ -141,7 +141,7 @@ describe("cacheRetention default behavior", () => {
     const agent: { streamFn?: StreamFn } = {};
     const cfg = undefined;
     const provider = "anthropic";
-    const modelId = "claude-3-sonnet";
+    const modelId = "claude-opus-4-5";
     const extraParamsOverride = {
       cacheRetention: "none" as const,
     };

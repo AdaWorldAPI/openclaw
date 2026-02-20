@@ -82,7 +82,7 @@ describe("trigger handling", () => {
         ...cfg.agents,
         defaults: {
           ...cfg.agents?.defaults,
-          heartbeat: { model: "anthropic/claude-haiku-4-5-20251001" },
+          heartbeat: { model: "anthropic/claude-opus-4-5-20251101" },
         },
       };
 
@@ -90,7 +90,7 @@ describe("trigger handling", () => {
 
       const call = runEmbeddedPiAgentMock.mock.calls[0]?.[0];
       expect(call?.provider).toBe("anthropic");
-      expect(call?.model).toBe("claude-haiku-4-5-20251001");
+      expect(call?.model).toBe("claude-opus-4-5-20251101");
     });
   });
 

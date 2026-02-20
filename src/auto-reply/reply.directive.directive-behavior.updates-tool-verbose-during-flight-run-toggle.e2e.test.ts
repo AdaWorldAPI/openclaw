@@ -133,7 +133,7 @@ describe("directive behavior", () => {
       const text = await runModelDirectiveAndGetText(home, "/model status");
       expect(text).toContain("anthropic/claude-opus-4-5");
       expect(text).toContain("openai/gpt-4.1-mini");
-      expect(text).not.toContain("claude-sonnet-4-1");
+      expect(text).not.toContain("claude-opus-4-5");
       expect(text).toContain("auth:");
       expect(runEmbeddedPiAgent).not.toHaveBeenCalled();
     });

@@ -42,7 +42,7 @@ x-i18n:
   },
   agent: {
     workspace: "~/.openclaw/workspace",
-    model: { primary: "anthropic/claude-sonnet-4-5" },
+    model: { primary: "anthropic/claude-opus-4-5" },
   },
   channels: {
     whatsapp: {
@@ -232,15 +232,15 @@ x-i18n:
       workspace: "~/.openclaw/workspace",
       userTimezone: "America/Chicago",
       model: {
-        primary: "anthropic/claude-sonnet-4-5",
+        primary: "anthropic/claude-opus-4-5",
         fallbacks: ["anthropic/claude-opus-4-5", "openai/gpt-5.2"],
       },
       imageModel: {
-        primary: "openrouter/anthropic/claude-sonnet-4-5",
+        primary: "openrouter/anthropic/claude-opus-4-5",
       },
       models: {
         "anthropic/claude-opus-4-5": { alias: "opus" },
-        "anthropic/claude-sonnet-4-5": { alias: "sonnet" },
+        "anthropic/claude-opus-4-5": { alias: "sonnet" },
         "openai/gpt-5.2": { alias: "gpt" },
       },
       thinkingDefault: "low",
@@ -265,7 +265,7 @@ x-i18n:
       maxConcurrent: 3,
       heartbeat: {
         every: "30m",
-        model: "anthropic/claude-sonnet-4-5",
+        model: "anthropic/claude-opus-4-5",
         target: "last",
         to: "+15555550123",
         prompt: "HEARTBEAT",
@@ -476,7 +476,7 @@ x-i18n:
   agent: {
     workspace: "~/.openclaw/workspace",
     model: {
-      primary: "anthropic/claude-sonnet-4-5",
+      primary: "anthropic/claude-opus-4-5",
       fallbacks: ["anthropic/claude-opus-4-5"],
     },
   },

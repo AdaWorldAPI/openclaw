@@ -773,7 +773,7 @@ describe("sessions tools", () => {
           sessionId: "session-usage-active",
           updatedAt: now,
           modelProvider: "anthropic",
-          model: "claude-opus-4-6",
+          model: "claude-opus-4-5",
           inputTokens: 12,
           outputTokens: 1000,
           totalTokens: 197000,

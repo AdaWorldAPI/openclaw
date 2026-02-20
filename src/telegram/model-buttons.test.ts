@@ -31,11 +31,11 @@ describe("parseModelCallbackData", () => {
   });
 
   it("parses mdl_sel callback with provider/model", () => {
-    const result = parseModelCallbackData("mdl_sel_anthropic/claude-sonnet-4-5");
+    const result = parseModelCallbackData("mdl_sel_anthropic/claude-opus-4-5");
     expect(result).toEqual({
       type: "select",
       provider: "anthropic",
-      model: "claude-sonnet-4-5",
+      model: "claude-opus-4-5",
     });
   });
 
@@ -122,28 +122,28 @@ describe("buildModelsKeyboard", () => {
   it("shows models with one per row", () => {
     const result = buildModelsKeyboard({
       provider: "anthropic",
-      models: ["claude-sonnet-4", "claude-opus-4"],
+      models: ["claude-opus-4-5", "claude-opus-4-5"],
       currentPage: 1,
       totalPages: 1,
     });
     // 2 model rows + back button
     expect(result).toHaveLength(3);
-    expect(result[0]?.[0]?.text).toBe("claude-sonnet-4");
-    expect(result[0]?.[0]?.callback_data).toBe("mdl_sel_anthropic/claude-sonnet-4");
-    expect(result[1]?.[0]?.text).toBe("claude-opus-4");
+    expect(result[0]?.[0]?.text).toBe("claude-opus-4-5");
+    expect(result[0]?.[0]?.callback_data).toBe("mdl_sel_anthropic/claude-opus-4-5");
+    expect(result[1]?.[0]?.text).toBe("claude-opus-4-5");
     expect(result[2]?.[0]?.text).toBe("<< Back");
   });
 
   it("marks current model with checkmark", () => {
     const result = buildModelsKeyboard({
       provider: "anthropic",
-      models: ["claude-sonnet-4", "claude-opus-4"],
-      currentModel: "anthropic/claude-sonnet-4",
+      models: ["claude-opus-4-5", "claude-opus-4-5"],
+      currentModel: "anthropic/claude-opus-4-5",
       currentPage: 1,
       totalPages: 1,
     });
-    expect(result[0]?.[0]?.text).toBe("claude-sonnet-4 ✓");
-    expect(result[1]?.[0]?.text).toBe("claude-opus-4");
+    expect(result[0]?.[0]?.text).toBe("claude-opus-4-5 ✓");
+    expect(result[1]?.[0]?.text).toBe("claude-opus-4-5");
   });
 
   it("shows pagination when multiple pages", () => {
@@ -200,7 +200,7 @@ describe("buildModelsKeyboard", () => {
   it("truncates long model IDs for display", () => {
     // Model ID that's long enough to truncate display but still fits in callback_data
     // callback_data = "mdl_sel_anthropic/" (18) + model (<=46) = 64 max
-    const longModel = "claude-3-5-sonnet-20241022-with-suffix";
+    const longModel = "claude-opus-4-5-20251101-with-suffix";
     const result = buildModelsKeyboard({
       provider: "anthropic",
       models: [longModel],
@@ -292,7 +292,7 @@ describe("large model lists (OpenRouter-scale)", () => {
   it("all callback_data stays within 64-byte limit", () => {
     // Realistic OpenRouter model IDs
     const models = [
-      "anthropic/claude-3-5-sonnet-20241022",
+      "anthropic/claude-opus-4-5-20251101",
       "google/gemini-2.0-flash-thinking-exp:free",
       "deepseek/deepseek-r1-distill-llama-70b",
       "meta-llama/llama-3.3-70b-instruct:nitro",

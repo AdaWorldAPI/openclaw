@@ -377,7 +377,7 @@ async function promptCustomApiModelId(prompter: WizardPrompter): Promise<string>
   return (
     await prompter.text({
       message: "Model ID",
-      placeholder: "e.g. llama3, claude-3-7-sonnet",
+      placeholder: "e.g. llama3, claude-opus-4-5",
       validate: (val) => (val.trim() ? undefined : "Model ID is required"),
     })
   ).trim();

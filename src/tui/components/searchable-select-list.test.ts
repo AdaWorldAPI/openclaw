@@ -26,14 +26,14 @@ const ansiHighlightTheme: SearchableSelectListTheme = {
 
 const testItems = [
   {
-    value: "anthropic/claude-3-opus",
-    label: "anthropic/claude-3-opus",
-    description: "Claude 3 Opus",
+    value: "anthropic/claude-opus-4-5",
+    label: "anthropic/claude-opus-4-5",
+    description: "Claude Opus 4.5",
   },
   {
-    value: "anthropic/claude-3-sonnet",
-    label: "anthropic/claude-3-sonnet",
-    description: "Claude 3 Sonnet",
+    value: "anthropic/claude-opus-4-5",
+    label: "anthropic/claude-opus-4-5",
+    description: "Claude Opus 4.5",
   },
   { value: "openai/gpt-4", label: "openai/gpt-4", description: "GPT-4" },
   { value: "openai/gpt-4-turbo", label: "openai/gpt-4-turbo", description: "GPT-4 Turbo" },
@@ -154,9 +154,9 @@ describe("SearchableSelectList", () => {
       { value: "openrouter/auto", label: "openrouter/auto", description: "Routes to best" },
       { value: "opus-direct", label: "opus-direct", description: "Direct opus model" },
       {
-        value: "anthropic/claude-3-opus",
-        label: "anthropic/claude-3-opus",
-        description: "Claude 3 Opus",
+        value: "anthropic/claude-opus-4-5",
+        label: "anthropic/claude-opus-4-5",
+        description: "Claude Opus 4.5",
       },
     ];
     const list = new SearchableSelectList(items, 5, mockTheme);
@@ -276,12 +276,12 @@ describe("SearchableSelectList", () => {
     const list = new SearchableSelectList(testItems, 5, mockTheme);
 
     // Initially first item is selected
-    expect(list.getSelectedItem()?.value).toBe("anthropic/claude-3-opus");
+    expect(list.getSelectedItem()?.value).toBe("anthropic/claude-opus-4-5");
 
     // Press down arrow (escape sequence for down arrow)
     list.handleInput("\x1b[B");
 
-    expect(list.getSelectedItem()?.value).toBe("anthropic/claude-3-sonnet");
+    expect(list.getSelectedItem()?.value).toBe("anthropic/claude-opus-4-5");
   });
 
   it("calls onSelect when enter is pressed", () => {
@@ -295,7 +295,7 @@ describe("SearchableSelectList", () => {
     // Press enter
     list.handleInput("\r");
 
-    expect(selectedValue).toBe("anthropic/claude-3-opus");
+    expect(selectedValue).toBe("anthropic/claude-opus-4-5");
   });
 
   it("calls onCancel when escape is pressed", () => {

@@ -237,7 +237,7 @@ describe("onboard (non-interactive): provider auth", () => {
       expect(cfg.auth?.profiles?.["vercel-ai-gateway:default"]?.provider).toBe("vercel-ai-gateway");
       expect(cfg.auth?.profiles?.["vercel-ai-gateway:default"]?.mode).toBe("api_key");
       expect(cfg.agents?.defaults?.model?.primary).toBe(
-        "vercel-ai-gateway/anthropic/claude-opus-4.6",
+        "vercel-ai-gateway/anthropic/claude-opus-4.5",
       );
       await expectApiKeyProfile({
         profileId: "vercel-ai-gateway:default",
@@ -306,7 +306,7 @@ describe("onboard (non-interactive): provider auth", () => {
 
       expect(cfg.auth?.profiles?.["litellm:default"]?.provider).toBe("litellm");
       expect(cfg.auth?.profiles?.["litellm:default"]?.mode).toBe("api_key");
-      expect(cfg.agents?.defaults?.model?.primary).toBe("litellm/claude-opus-4-6");
+      expect(cfg.agents?.defaults?.model?.primary).toBe("litellm/claude-opus-4-5");
       await expectApiKeyProfile({
         profileId: "litellm:default",
         provider: "litellm",
@@ -347,7 +347,7 @@ describe("onboard (non-interactive): provider auth", () => {
         );
         expect(cfg.auth?.profiles?.["cloudflare-ai-gateway:default"]?.mode).toBe("api_key");
         expect(cfg.agents?.defaults?.model?.primary).toBe(
-          "cloudflare-ai-gateway/claude-sonnet-4-5",
+          "cloudflare-ai-gateway/claude-opus-4-5",
         );
         await expectApiKeyProfile({
           profileId: "cloudflare-ai-gateway:default",

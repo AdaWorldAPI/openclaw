@@ -15,7 +15,7 @@ function makeCfg(overrides: Partial<OpenClawConfig> = {}): OpenClawConfig {
       defaults: {
         model: {
           primary: "openai/gpt-4.1-mini",
-          fallbacks: ["anthropic/claude-haiku-3-5"],
+          fallbacks: ["anthropic/claude-opus-4-5-20251101"],
         },
       },
     },
@@ -96,7 +96,7 @@ async function expectFallsBackToHaiku(params: {
   expect(result.result).toBe("ok");
   expect(run).toHaveBeenCalledTimes(2);
   expect(run.mock.calls[1]?.[0]).toBe("anthropic");
-  expect(run.mock.calls[1]?.[1]).toBe("claude-haiku-3-5");
+  expect(run.mock.calls[1]?.[1]).toBe("claude-opus-4-5-20251101");
 }
 
 describe("runWithModelFallback", () => {
@@ -145,7 +145,7 @@ describe("runWithModelFallback", () => {
         defaults: {
           model: {
             primary: "openai/gpt-4.1-mini",
-            fallbacks: ["anthropic/claude-haiku-3-5", "openrouter/deepseek-chat"],
+            fallbacks: ["anthropic/claude-opus-4-5-20251101", "openrouter/deepseek-chat"],
           },
         },
       },
@@ -183,7 +183,7 @@ describe("runWithModelFallback", () => {
         defaults: {
           model: {
             primary: "openai/gpt-4.1-mini",
-            fallbacks: ["anthropic/claude-haiku-3-5"],
+            fallbacks: ["anthropic/claude-opus-4-5-20251101"],
           },
         },
       },
@@ -204,7 +204,7 @@ describe("runWithModelFallback", () => {
     expect(result.result).toBe("ok");
     expect(run.mock.calls).toEqual([
       ["openai", "gpt-4.1-mini"],
-      ["anthropic", "claude-haiku-3-5"],
+      ["anthropic", "claude-opus-4-5-20251101"],
     ]);
   });
 
@@ -239,7 +239,7 @@ describe("runWithModelFallback", () => {
   it("falls back to configured primary for override credential validation errors", async () => {
     const cfg = makeCfg();
     const run = vi.fn().mockImplementation(async (provider, model) => {
-      if (provider === "anthropic" && model === "claude-opus-4") {
+      if (provider === "anthropic" && model === "claude-opus-4-5") {
         throw new Error('No credentials found for profile "anthropic:default".');
       }
       if (provider === "openai" && model === "gpt-4.1-mini") {
@@ -251,13 +251,13 @@ describe("runWithModelFallback", () => {
     const result = await runWithModelFallback({
       cfg,
       provider: "anthropic",
-      model: "claude-opus-4",
+      model: "claude-opus-4-5",
       run,
     });
 
     expect(result.result).toBe("ok");
     expect(run.mock.calls).toEqual([
-      ["anthropic", "claude-opus-4"],
+      ["anthropic", "claude-opus-4-5"],
       ["openai", "gpt-4.1-mini"],
     ]);
   });
@@ -266,13 +266,13 @@ describe("runWithModelFallback", () => {
     const cfg = makeCfg();
     const run = vi
       .fn()
-      .mockRejectedValueOnce(new Error("Unknown model: anthropic/claude-opus-4-6"))
+      .mockRejectedValueOnce(new Error("Unknown model: anthropic/claude-opus-4-5"))
       .mockResolvedValueOnce("ok");
 
     const result = await runWithModelFallback({
       cfg,
       provider: "anthropic",
-      model: "claude-opus-4-6",
+      model: "claude-opus-4-5",
       run,
     });
 
@@ -410,14 +410,14 @@ describe("runWithModelFallback", () => {
         cfg,
         provider: "anthropic",
         model: "claude-opus-4-5",
-        fallbacksOverride: ["anthropic/claude-haiku-3-5"],
+        fallbacksOverride: ["anthropic/claude-opus-4-5-20251101"],
         run,
       }),
     ).rejects.toThrow("All models failed");
 
     expect(run.mock.calls).toEqual([
       ["anthropic", "claude-opus-4-5"],
-      ["anthropic", "claude-haiku-3-5"],
+      ["anthropic", "claude-opus-4-5-20251101"],
     ]);
   });
 

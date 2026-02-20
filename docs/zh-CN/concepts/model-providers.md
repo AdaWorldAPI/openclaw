@@ -117,7 +117,7 @@ OpenClaw 附带 pi-ai 目录。这些提供商**不需要** `models.providers` �
 ### 其他内置提供商
 
 - OpenRouter：`openrouter`（`OPENROUTER_API_KEY`）
-- 示例模型：`openrouter/anthropic/claude-sonnet-4-5`
+- 示例模型：`openrouter/anthropic/claude-opus-4-5`
 - xAI：`xai`（`XAI_API_KEY`）
 - Groq：`groq`（`GROQ_API_KEY`）
 - Cerebras：`cerebras`（`CEREBRAS_API_KEY`）

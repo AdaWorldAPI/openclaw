@@ -180,7 +180,7 @@ describe("google-shared convertMessages", () => {
   });
 
   it("keeps thought signatures for Claude models", () => {
-    const model = makeModel("claude-3-opus");
+    const model = makeModel("claude-opus-4-5");
     const context = {
       messages: [
         makeGoogleAssistantMessage(model.id, [
@@ -212,7 +212,7 @@ describe("google-shared convertMessages", () => {
 
   it("does not merge consecutive user messages for non-Gemini Google models", () => {
     expectConsecutiveMessagesNotMerged({
-      modelId: "claude-3-opus",
+      modelId: "claude-opus-4-5",
       first: "First",
       second: "Second",
     });

@@ -86,7 +86,7 @@ Gateway 网关可以暴露一个小型 HTTP webhook 端点用于外部触发。
 - `deliver` 可选（布尔值）：如果为 `true`，智能体的响应将发送到消息渠道。默认为 `true`。仅为心跳确认的响应会自动跳过。
 - `channel` 可选（字符串）：用于投递的消息渠道。可选值：`last`、`whatsapp`、`telegram`、`discord`、`slack`、`mattermost`（插件）、`signal`、`imessage`、`msteams`。默认为 `last`。
 - `to` 可选（字符串）：渠道的接收者标识符（例如 WhatsApp/Signal 的电话号码、Telegram 的聊天 ID、Discord/Slack/Mattermost（插件）的频道 ID、MS Teams 的会话 ID）。默认为主会话中的最后一个接收者。
-- `model` 可选（字符串）：模型覆盖（例如 `anthropic/claude-3-5-sonnet` 或别名）。如果有限制，必须在允许的模型列表中。
+- `model` 可选（字符串）：模型覆盖（例如 `anthropic/claude-opus-4-5-20251101` 或别名）。如果有限制，必须在允许的模型列表中。
 - `thinking` 可选（字符串）：思考级别覆盖（例如 `low`、`medium`、`high`）。
 - `timeoutSeconds` 可选（数字）：智能体运行的最大持续时间（秒）。
 

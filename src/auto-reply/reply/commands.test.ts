@@ -66,7 +66,7 @@ vi.mock("../../channels/plugins/pairing.js", async () => {
 vi.mock("../../agents/model-catalog.js", () => ({
   loadModelCatalog: vi.fn(async () => [
     { provider: "anthropic", id: "claude-opus-4-5", name: "Claude Opus" },
-    { provider: "anthropic", id: "claude-sonnet-4-5", name: "Claude Sonnet" },
+    { provider: "anthropic", id: "claude-opus-4-5", name: "Claude Sonnet" },
     { provider: "openai", id: "gpt-4.1", name: "GPT-4.1" },
     { provider: "openai", id: "gpt-4.1-mini", name: "GPT-4.1 Mini" },
     { provider: "google", id: "gemini-2.0-flash", name: "Gemini Flash" },
@@ -985,7 +985,7 @@ describe("handleCommands subagents", () => {
         inputTokens: 12,
         outputTokens: 1000,
         totalTokens: 197000,
-        model: "opencode/claude-opus-4-6",
+        model: "opencode/claude-opus-4-5",
       };
     });
     const cfg = {

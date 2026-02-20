@@ -565,7 +565,7 @@ describe("allowlist provider helpers", () => {
     const providerCases = [
       {
         applyConfig: applyOpencodeZenProviderConfig,
-        modelRef: "opencode/claude-opus-4-6",
+        modelRef: "opencode/claude-opus-4-5",
         alias: "My Opus",
       },
       {
@@ -610,7 +610,7 @@ describe("applyLitellmProviderConfig", () => {
     expect(cfg.models?.providers?.litellm?.apiKey).toBe("old-key");
     expect(cfg.models?.providers?.litellm?.models.map((m) => m.id)).toEqual([
       "custom-model",
-      "claude-opus-4-6",
+      "claude-opus-4-5",
     ]);
   });
 });
@@ -620,7 +620,7 @@ describe("default-model config helpers", () => {
     const configCases = [
       {
         applyConfig: applyOpencodeZenConfig,
-        primaryModel: "opencode/claude-opus-4-6",
+        primaryModel: "opencode/claude-opus-4-5",
       },
       {
         applyConfig: applyOpenrouterConfig,

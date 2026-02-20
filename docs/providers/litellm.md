@@ -31,7 +31,7 @@ openclaw onboard --auth-choice litellm-api-key
 
 ```bash
 pip install 'litellm[proxy]'
-litellm --model claude-opus-4-6
+litellm --model claude-opus-4-5
 ```
 
 2. Point OpenClaw to LiteLLM:
@@ -64,7 +64,7 @@ export LITELLM_API_KEY="sk-litellm-key"
         api: "openai-completions",
         models: [
           {
-            id: "claude-opus-4-6",
+            id: "claude-opus-4-5",
             name: "Claude Opus 4.6",
             reasoning: true,
             input: ["text", "image"],
@@ -85,7 +85,7 @@ export LITELLM_API_KEY="sk-litellm-key"
   },
   agents: {
     defaults: {
-      model: { primary: "litellm/claude-opus-4-6" },
+      model: { primary: "litellm/claude-opus-4-5" },
     },
   },
 }
@@ -114,9 +114,9 @@ LiteLLM can route model requests to different backends. Configure in your LiteLL
 
 ```yaml
 model_list:
-  - model_name: claude-opus-4-6
+  - model_name: claude-opus-4-5
     litellm_params:
-      model: claude-opus-4-6
+      model: claude-opus-4-5
       api_key: os.environ/ANTHROPIC_API_KEY
 
   - model_name: gpt-4o
@@ -125,7 +125,7 @@ model_list:
       api_key: os.environ/OPENAI_API_KEY
 ```
 
-OpenClaw keeps requesting `claude-opus-4-6` — LiteLLM handles the routing.
+OpenClaw keeps requesting `claude-opus-4-5` — LiteLLM handles the routing.
 
 ## Viewing usage
 

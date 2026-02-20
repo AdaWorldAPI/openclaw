@@ -7,24 +7,24 @@ import type { ModelRegistry } from "./pi-model-discovery.js";
 const OPENAI_CODEX_GPT_53_MODEL_ID = "gpt-5.3-codex";
 const OPENAI_CODEX_TEMPLATE_MODEL_IDS = ["gpt-5.2-codex"] as const;
 
-const ANTHROPIC_OPUS_46_MODEL_ID = "claude-opus-4-6";
-const ANTHROPIC_OPUS_46_DOT_MODEL_ID = "claude-opus-4.6";
+const ANTHROPIC_OPUS_46_MODEL_ID = "claude-opus-4-5";
+const ANTHROPIC_OPUS_46_DOT_MODEL_ID = "claude-opus-4.5";
 const ANTHROPIC_OPUS_TEMPLATE_MODEL_IDS = ["claude-opus-4-5", "claude-opus-4.5"] as const;
-const ANTHROPIC_SONNET_46_MODEL_ID = "claude-sonnet-4-6";
-const ANTHROPIC_SONNET_46_DOT_MODEL_ID = "claude-sonnet-4.6";
-const ANTHROPIC_SONNET_TEMPLATE_MODEL_IDS = ["claude-sonnet-4-5", "claude-sonnet-4.5"] as const;
+const ANTHROPIC_SONNET_46_MODEL_ID = "claude-opus-4-5";
+const ANTHROPIC_SONNET_46_DOT_MODEL_ID = "claude-opus-4.5";
+const ANTHROPIC_SONNET_TEMPLATE_MODEL_IDS = ["claude-opus-4-5", "claude-opus-4.5"] as const;
 
 const ZAI_GLM5_MODEL_ID = "glm-5";
 const ZAI_GLM5_TEMPLATE_MODEL_IDS = ["glm-4.7"] as const;
 
-const ANTIGRAVITY_OPUS_46_MODEL_ID = "claude-opus-4-6";
-const ANTIGRAVITY_OPUS_46_DOT_MODEL_ID = "claude-opus-4.6";
+const ANTIGRAVITY_OPUS_46_MODEL_ID = "claude-opus-4-5";
+const ANTIGRAVITY_OPUS_46_DOT_MODEL_ID = "claude-opus-4.5";
 const ANTIGRAVITY_OPUS_TEMPLATE_MODEL_IDS = ["claude-opus-4-5", "claude-opus-4.5"] as const;
-const ANTIGRAVITY_OPUS_46_THINKING_MODEL_ID = "claude-opus-4-6-thinking";
-const ANTIGRAVITY_OPUS_46_DOT_THINKING_MODEL_ID = "claude-opus-4.6-thinking";
+const ANTIGRAVITY_OPUS_46_THINKING_MODEL_ID = "claude-opus-4-5-thinking";
+const ANTIGRAVITY_OPUS_46_DOT_THINKING_MODEL_ID = "claude-opus-4-5-thinking";
 const ANTIGRAVITY_OPUS_THINKING_TEMPLATE_MODEL_IDS = [
   "claude-opus-4-5-thinking",
-  "claude-opus-4.5-thinking",
+  "claude-opus-4-5-thinking",
 ] as const;
 
 export const ANTIGRAVITY_OPUS_46_FORWARD_COMPAT_CANDIDATES = [
@@ -32,7 +32,7 @@ export const ANTIGRAVITY_OPUS_46_FORWARD_COMPAT_CANDIDATES = [
     id: ANTIGRAVITY_OPUS_46_THINKING_MODEL_ID,
     templatePrefixes: [
       "google-antigravity/claude-opus-4-5-thinking",
-      "google-antigravity/claude-opus-4.5-thinking",
+      "google-antigravity/claude-opus-4-5-thinking",
     ],
   },
   {
@@ -176,8 +176,8 @@ function resolveAnthropicSonnet46ForwardCompatModel(
     modelRegistry,
     dashModelId: ANTHROPIC_SONNET_46_MODEL_ID,
     dotModelId: ANTHROPIC_SONNET_46_DOT_MODEL_ID,
-    dashTemplateId: "claude-sonnet-4-5",
-    dotTemplateId: "claude-sonnet-4.5",
+    dashTemplateId: "claude-opus-4-5",
+    dotTemplateId: "claude-opus-4.5",
     fallbackTemplateIds: ANTHROPIC_SONNET_TEMPLATE_MODEL_IDS,
   });
 }
@@ -264,7 +264,7 @@ function resolveAntigravityOpus46ForwardCompatModel(
   }
   if (lower.startsWith(ANTIGRAVITY_OPUS_46_DOT_THINKING_MODEL_ID)) {
     templateIds.push(
-      lower.replace(ANTIGRAVITY_OPUS_46_DOT_THINKING_MODEL_ID, "claude-opus-4.5-thinking"),
+      lower.replace(ANTIGRAVITY_OPUS_46_DOT_THINKING_MODEL_ID, "claude-opus-4-5-thinking"),
     );
   }
   templateIds.push(...ANTIGRAVITY_OPUS_TEMPLATE_MODEL_IDS);

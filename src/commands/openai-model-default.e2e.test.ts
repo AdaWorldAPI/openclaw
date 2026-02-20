@@ -51,7 +51,7 @@ function expectConfigUnchanged(
 
 describe("applyDefaultModelChoice", () => {
   it("ensures allowlist entry exists when returning an agent override", async () => {
-    const defaultModel = "vercel-ai-gateway/anthropic/claude-opus-4.6";
+    const defaultModel = "vercel-ai-gateway/anthropic/claude-opus-4.5";
     const noteAgentModel = vi.fn(async () => {});
     const applied = await applyDefaultModelChoice({
       config: {},
@@ -82,7 +82,7 @@ describe("applyDefaultModelChoice", () => {
     });
 
     expect(applied.config.agents?.defaults?.models?.[defaultModel]).toEqual({});
-    expect(applied.config.agents?.defaults?.models?.["anthropic/claude-opus-4-6"]).toEqual({});
+    expect(applied.config.agents?.defaults?.models?.["anthropic/claude-opus-4-5"]).toEqual({});
   });
 
   it("uses applyDefaultConfig path when setDefaultModel is true", async () => {
@@ -161,7 +161,7 @@ describe("applyOpenAIConfig", () => {
 
   it("overrides model.primary when model object already exists", () => {
     const next = applyOpenAIConfig({
-      agents: { defaults: { model: { primary: "anthropic/claude-opus-4-6", fallbacks: [] } } },
+      agents: { defaults: { model: { primary: "anthropic/claude-opus-4-5", fallbacks: [] } } },
     });
     expect(next.agents?.defaults?.model).toEqual({ primary: OPENAI_DEFAULT_MODEL, fallbacks: [] });
   });

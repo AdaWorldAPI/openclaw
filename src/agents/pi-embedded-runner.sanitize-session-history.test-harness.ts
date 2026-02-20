@@ -142,7 +142,7 @@ export function makeSnapshotChangedOpenAIReasoningScenario() {
     makeModelSnapshotEntry({
       provider: "anthropic",
       modelApi: "anthropic-messages",
-      modelId: "claude-3-7",
+      modelId: "claude-opus-4-5-20251101",
     }),
   ];
   return {

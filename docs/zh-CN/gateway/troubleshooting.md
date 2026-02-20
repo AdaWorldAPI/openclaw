@@ -293,7 +293,7 @@ openclaw gateway status
 
 **修复：** 只需发送另一条消息。会话将继续。
 
-### "Agent failed before reply: Unknown model: anthropic/claude-haiku-3-5"
+### "Agent failed before reply: Unknown model: anthropic/claude-opus-4-5-20251101"
 
 OpenClaw 有意拒绝**较旧/不安全的模型**（尤其是那些更容易受到提示词注入攻击的模型）。如果你看到此错误，该模型名称已不再支持。
 

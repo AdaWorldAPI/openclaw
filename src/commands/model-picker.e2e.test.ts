@@ -87,7 +87,7 @@ describe("promptDefaultModel", () => {
     loadModelCatalog.mockResolvedValue([
       {
         provider: "anthropic",
-        id: "claude-sonnet-4-5",
+        id: "claude-opus-4-5",
         name: "Claude Sonnet 4.5",
       },
     ]);
@@ -157,7 +157,7 @@ describe("promptModelAllowlist", () => {
       },
       {
         provider: "anthropic",
-        id: "claude-sonnet-4-5",
+        id: "claude-opus-4-5",
         name: "Claude Sonnet 4.5",
       },
       {
@@ -231,11 +231,11 @@ describe("applyModelFallbacksFromSelection", () => {
 
     const next = applyModelFallbacksFromSelection(config, [
       "anthropic/claude-opus-4-5",
-      "anthropic/claude-sonnet-4-5",
+      "anthropic/claude-opus-4-5",
     ]);
     expect(next.agents?.defaults?.model).toEqual({
       primary: "anthropic/claude-opus-4-5",
-      fallbacks: ["anthropic/claude-sonnet-4-5"],
+      fallbacks: ["anthropic/claude-opus-4-5"],
     });
   });
 

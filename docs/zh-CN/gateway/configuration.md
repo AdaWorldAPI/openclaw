@@ -1650,7 +1650,7 @@ Talk 模式（macOS/iOS/Android）的默认值。语音 ID 在未设置时回退
   agents: {
     defaults: {
       models: {
-        "anthropic/claude-sonnet-4-5-20250929": {
+        "anthropic/claude-opus-4-5-20251101": {
           params: { temperature: 0.6 },
         },
         "openai/gpt-5.2": {
@@ -1670,7 +1670,7 @@ Z.AI GLM-4.x 模型会自动启用思考模式，除非你：
 OpenClaw 还内置了一些别名快捷方式。默认值仅在模型已存在于 `agents.defaults.models` 中时才应用：
 
 - `opus` -> `anthropic/claude-opus-4-5`
-- `sonnet` -> `anthropic/claude-sonnet-4-5`
+- `sonnet` -> `anthropic/claude-opus-4-5`
 - `gpt` -> `openai/gpt-5.2`
 - `gpt-mini` -> `openai/gpt-5-mini`
 - `gemini` -> `google/gemini-3-pro-preview`
@@ -1743,7 +1743,7 @@ MiniMax 认证：设置 `MINIMAX_API_KEY`（环境变量）或配置 `models.pro
     defaults: {
       models: {
         "anthropic/claude-opus-4-5": { alias: "Opus" },
-        "anthropic/claude-sonnet-4-1": { alias: "Sonnet" },
+        "anthropic/claude-opus-4-5": { alias: "Sonnet" },
         "openrouter/deepseek/deepseek-r1:free": {},
         "zai/glm-4.7": {
           alias: "GLM",

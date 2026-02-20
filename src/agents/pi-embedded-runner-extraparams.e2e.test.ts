@@ -133,14 +133,14 @@ describe("applyExtraParamsToAgent", () => {
 
   it("adds Anthropic 1M beta header when context1m is enabled for Opus/Sonnet", () => {
     const { calls, agent } = createOptionsCaptureAgent();
-    const cfg = buildAnthropicModelConfig("anthropic/claude-opus-4-6", { context1m: true });
+    const cfg = buildAnthropicModelConfig("anthropic/claude-opus-4-5", { context1m: true });
 
-    applyExtraParamsToAgent(agent, cfg, "anthropic", "claude-opus-4-6");
+    applyExtraParamsToAgent(agent, cfg, "anthropic", "claude-opus-4-5");
 
     const model = {
       api: "anthropic-messages",
       provider: "anthropic",
-      id: "claude-opus-4-6",
+      id: "claude-opus-4-5",
     } as Model<"anthropic-messages">;
     const context: Context = { messages: [] };
 
@@ -170,7 +170,7 @@ describe("applyExtraParamsToAgent", () => {
       agents: {
         defaults: {
           models: {
-            "anthropic/claude-sonnet-4-6": {
+            "anthropic/claude-opus-4-5": {
               params: {
                 context1m: true,
               },
@@ -180,12 +180,12 @@ describe("applyExtraParamsToAgent", () => {
       },
     };
 
-    applyExtraParamsToAgent(agent, cfg, "anthropic", "claude-sonnet-4-6");
+    applyExtraParamsToAgent(agent, cfg, "anthropic", "claude-opus-4-5");
 
     const model = {
       api: "anthropic-messages",
       provider: "anthropic",
-      id: "claude-sonnet-4-6",
+      id: "claude-opus-4-5",
     } as Model<"anthropic-messages">;
     const context: Context = { messages: [] };
 
@@ -205,17 +205,17 @@ describe("applyExtraParamsToAgent", () => {
 
   it("merges existing anthropic-beta headers with configured betas", () => {
     const { calls, agent } = createOptionsCaptureAgent();
-    const cfg = buildAnthropicModelConfig("anthropic/claude-sonnet-4-5", {
+    const cfg = buildAnthropicModelConfig("anthropic/claude-opus-4-5", {
       context1m: true,
       anthropicBeta: ["files-api-2025-04-14"],
     });
 
-    applyExtraParamsToAgent(agent, cfg, "anthropic", "claude-sonnet-4-5");
+    applyExtraParamsToAgent(agent, cfg, "anthropic", "claude-opus-4-5");
 
     const model = {
       api: "anthropic-messages",
       provider: "anthropic",
-      id: "claude-sonnet-4-5",
+      id: "claude-opus-4-5",
     } as Model<"anthropic-messages">;
     const context: Context = { messages: [] };
 
@@ -233,14 +233,14 @@ describe("applyExtraParamsToAgent", () => {
 
   it("ignores context1m for non-Opus/Sonnet Anthropic models", () => {
     const { calls, agent } = createOptionsCaptureAgent();
-    const cfg = buildAnthropicModelConfig("anthropic/claude-haiku-3-5", { context1m: true });
+    const cfg = buildAnthropicModelConfig("anthropic/claude-opus-4-5-20251101", { context1m: true });
 
-    applyExtraParamsToAgent(agent, cfg, "anthropic", "claude-haiku-3-5");
+    applyExtraParamsToAgent(agent, cfg, "anthropic", "claude-opus-4-5-20251101");
 
     const model = {
       api: "anthropic-messages",
       provider: "anthropic",
-      id: "claude-haiku-3-5",
+      id: "claude-opus-4-5-20251101",
     } as Model<"anthropic-messages">;
     const context: Context = { messages: [] };
 

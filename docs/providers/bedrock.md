@@ -78,7 +78,7 @@ export AWS_BEARER_TOKEN_BEDROCK="..."
         auth: "aws-sdk",
         models: [
           {
-            id: "us.anthropic.claude-opus-4-6-v1:0",
+            id: "us.anthropic.claude-opus-4-5-20251101-v1:0",
             name: "Claude Opus 4.6 (Bedrock)",
             reasoning: true,
             input: ["text", "image"],
@@ -92,7 +92,7 @@ export AWS_BEARER_TOKEN_BEDROCK="..."
   },
   agents: {
     defaults: {
-      model: { primary: "amazon-bedrock/us.anthropic.claude-opus-4-6-v1:0" },
+      model: { primary: "amazon-bedrock/us.anthropic.claude-opus-4-5-20251101-v1:0" },
     },
   },
 }

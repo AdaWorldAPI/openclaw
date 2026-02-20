@@ -9,7 +9,7 @@ import { buildTokenProfileId, validateAnthropicSetupToken } from "./auth-token.j
 import { applyAgentDefaultModelPrimary } from "./onboard-auth.config-shared.js";
 import { applyAuthProfileConfig, setAnthropicApiKey } from "./onboard-auth.js";
 
-const DEFAULT_ANTHROPIC_MODEL = "anthropic/claude-sonnet-4-6";
+const DEFAULT_ANTHROPIC_MODEL = "anthropic/claude-opus-4-5";
 
 export async function applyAuthChoiceAnthropic(
   params: ApplyAuthChoiceParams,

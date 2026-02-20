@@ -94,14 +94,14 @@ openclaw chat --model venice/llama-3.3-70b "Hello, are you working?"
 设置完成后，OpenClaw 会显示所有可用的 Venice 模型。根据你的需求选择：
 
 - **默认（我们的推荐）**：`venice/llama-3.3-70b`，私密且性能均衡。
-- **最佳整体质量**：`venice/claude-opus-45`，适合复杂任务（Opus 仍然是最强的）。
+- **最佳整体质量**：`venice/claude-opus-4-5`，适合复杂任务（Opus 仍然是最强的）。
 - **隐私**：选择"私密"模型以获得完全私密的推理。
 - **能力**：选择"匿名化"模型以通过 Venice 代理访问 Claude、GPT、Gemini。
 
 随时更改默认模型：
 
 ```bash
-openclaw models set venice/claude-opus-45
+openclaw models set venice/claude-opus-4-5
 openclaw models set venice/llama-3.3-70b
 ```
 
@@ -122,8 +122,8 @@ openclaw models list | grep venice
 | 使用场景               | 推荐模型                         | 原因                         |
 | ---------------------- | -------------------------------- | ---------------------------- |
 | **通用对话**           | `llama-3.3-70b`                  | 综合表现好，完全私密         |
-| **最佳整体质量**       | `claude-opus-45`                 | Opus 在复杂任务上仍然最强    |
-| **隐私 + Claude 品质** | `claude-opus-45`                 | 通过匿名代理获得最佳推理能力 |
+| **最佳整体质量**       | `claude-opus-4-5`                 | Opus 在复杂任务上仍然最强    |
+| **隐私 + Claude 品质** | `claude-opus-4-5`                 | 通过匿名代理获得最佳推理能力 |
 | **编程**               | `qwen3-coder-480b-a35b-instruct` | 代码优化，262k 上下文        |
 | **视觉任务**           | `qwen3-vl-235b-a22b`             | 最佳私密视觉模型             |
 | **无审查**             | `venice-uncensored`              | 无内容限制                   |
@@ -156,8 +156,8 @@ openclaw models list | grep venice
 
 | 模型 ID                  | 原始模型          | 上下文（token） | 特性       |
 | ------------------------ | ----------------- | --------------- | ---------- |
-| `claude-opus-45`         | Claude Opus 4.5   | 202k            | 推理，视觉 |
-| `claude-sonnet-45`       | Claude Sonnet 4.5 | 202k            | 推理，视觉 |
+| `claude-opus-4-5`         | Claude Opus 4.5   | 202k            | 推理，视觉 |
+| `claude-opus-4-5`       | Claude Sonnet 4.5 | 202k            | 推理，视觉 |
 | `openai-gpt-52`          | GPT-5.2           | 262k            | 推理       |
 | `openai-gpt-52-codex`    | GPT-5.2 Codex     | 262k            | 推理，视觉 |
 | `gemini-3-pro-preview`   | Gemini 3 Pro      | 202k            | 推理，视觉 |
@@ -205,7 +205,7 @@ Venice 使用积分制。请查看 [venice.ai/pricing](https://venice.ai/pricing
 openclaw chat --model venice/llama-3.3-70b
 
 # 通过 Venice 使用 Claude（匿名化）
-openclaw chat --model venice/claude-opus-45
+openclaw chat --model venice/claude-opus-4-5
 
 # 使用无审查模型
 openclaw chat --model venice/venice-uncensored

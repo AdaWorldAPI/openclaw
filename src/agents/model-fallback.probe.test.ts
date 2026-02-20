@@ -29,7 +29,7 @@ function makeCfg(overrides: Partial<OpenClawConfig> = {}): OpenClawConfig {
       defaults: {
         model: {
           primary: "openai/gpt-4.1-mini",
-          fallbacks: ["anthropic/claude-haiku-3-5"],
+          fallbacks: ["anthropic/claude-opus-4-5-20251101"],
         },
       },
     },
@@ -97,7 +97,7 @@ describe("runWithModelFallback – probe logic", () => {
     // Should skip primary and use fallback
     expect(result.result).toBe("ok");
     expect(run).toHaveBeenCalledTimes(1);
-    expect(run).toHaveBeenCalledWith("anthropic", "claude-haiku-3-5");
+    expect(run).toHaveBeenCalledWith("anthropic", "claude-opus-4-5-20251101");
     expect(result.attempts[0]?.reason).toBe("rate_limit");
   });
 
@@ -148,7 +148,7 @@ describe("runWithModelFallback – probe logic", () => {
         defaults: {
           model: {
             primary: "openai/gpt-4.1-mini",
-            fallbacks: ["anthropic/claude-haiku-3-5", "google/gemini-2-flash"],
+            fallbacks: ["anthropic/claude-opus-4-5-20251101", "google/gemini-2-flash"],
           },
         },
       },
@@ -203,7 +203,7 @@ describe("runWithModelFallback – probe logic", () => {
     // Should be throttled → skip primary, use fallback
     expect(result.result).toBe("ok");
     expect(run).toHaveBeenCalledTimes(1);
-    expect(run).toHaveBeenCalledWith("anthropic", "claude-haiku-3-5");
+    expect(run).toHaveBeenCalledWith("anthropic", "claude-opus-4-5-20251101");
     expect(result.attempts[0]?.reason).toBe("rate_limit");
   });
 

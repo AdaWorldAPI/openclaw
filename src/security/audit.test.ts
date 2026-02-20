@@ -1188,7 +1188,7 @@ describe("security audit", () => {
 
   it("warns on weak model tiers", async () => {
     const cfg: OpenClawConfig = {
-      agents: { defaults: { model: { primary: "anthropic/claude-haiku-4-5" } } },
+      agents: { defaults: { model: { primary: "anthropic/claude-opus-4-5" } } },
     };
 
     const res = await audit(cfg);
@@ -1201,9 +1201,9 @@ describe("security audit", () => {
   });
 
   it("does not warn on Venice-style opus-45 model names", async () => {
-    // Venice uses "claude-opus-45" format (no dash between 4 and 5)
+    // Venice uses "claude-opus-4-5" format (no dash between 4 and 5)
     const cfg: OpenClawConfig = {
-      agents: { defaults: { model: { primary: "venice/claude-opus-45" } } },
+      agents: { defaults: { model: { primary: "venice/claude-opus-4-5" } } },
     };
 
     const res = await audit(cfg);

@@ -5,7 +5,7 @@ const sendMock = vi.fn();
 const clientFactory = () => ({ send: sendMock }) as unknown as BedrockClient;
 
 const baseActiveAnthropicSummary = {
-  modelId: "anthropic.claude-3-7-sonnet-20250219-v1:0",
+  modelId: "anthropic.claude-opus-4-5-20251101-v1:0",
   modelName: "Claude 3.7 Sonnet",
   providerName: "anthropic",
   inputModalities: ["TEXT"],
@@ -37,7 +37,7 @@ describe("bedrock discovery", () => {
     sendMock.mockResolvedValueOnce({
       modelSummaries: [
         {
-          modelId: "anthropic.claude-3-7-sonnet-20250219-v1:0",
+          modelId: "anthropic.claude-opus-4-5-20251101-v1:0",
           modelName: "Claude 3.7 Sonnet",
           providerName: "anthropic",
           inputModalities: ["TEXT", "IMAGE"],
@@ -46,8 +46,8 @@ describe("bedrock discovery", () => {
           modelLifecycle: { status: "ACTIVE" },
         },
         {
-          modelId: "anthropic.claude-3-haiku-20240307-v1:0",
-          modelName: "Claude 3 Haiku",
+          modelId: "anthropic.claude-opus-4-5-20251101-v1:0",
+          modelName: "Claude Opus 4.5",
           providerName: "anthropic",
           inputModalities: ["TEXT"],
           outputModalities: ["TEXT"],
@@ -78,7 +78,7 @@ describe("bedrock discovery", () => {
     const models = await discoverBedrockModels({ region: "us-east-1", clientFactory });
     expect(models).toHaveLength(1);
     expect(models[0]).toMatchObject({
-      id: "anthropic.claude-3-7-sonnet-20250219-v1:0",
+      id: "anthropic.claude-opus-4-5-20251101-v1:0",
       name: "Claude 3.7 Sonnet",
       reasoning: false,
       input: ["text", "image"],

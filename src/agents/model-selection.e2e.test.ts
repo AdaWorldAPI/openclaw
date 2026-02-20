@@ -23,9 +23,9 @@ describe("model-selection", () => {
 
   describe("parseModelRef", () => {
     it("should parse full model refs", () => {
-      expect(parseModelRef("anthropic/claude-3-5-sonnet", "openai")).toEqual({
+      expect(parseModelRef("anthropic/claude-opus-4-5-20251101", "openai")).toEqual({
         provider: "anthropic",
-        model: "claude-3-5-sonnet",
+        model: "claude-opus-4-5-20251101",
       });
     });
 
@@ -39,26 +39,26 @@ describe("model-selection", () => {
     it("normalizes anthropic alias refs to canonical model ids", () => {
       expect(parseModelRef("anthropic/opus-4.6", "openai")).toEqual({
         provider: "anthropic",
-        model: "claude-opus-4-6",
+        model: "claude-opus-4-5",
       });
       expect(parseModelRef("opus-4.6", "anthropic")).toEqual({
         provider: "anthropic",
-        model: "claude-opus-4-6",
+        model: "claude-opus-4-5",
       });
       expect(parseModelRef("anthropic/sonnet-4.6", "openai")).toEqual({
         provider: "anthropic",
-        model: "claude-sonnet-4-6",
+        model: "claude-opus-4-5",
       });
       expect(parseModelRef("sonnet-4.6", "anthropic")).toEqual({
         provider: "anthropic",
-        model: "claude-sonnet-4-6",
+        model: "claude-opus-4-5",
       });
     });
 
     it("should use default provider if none specified", () => {
-      expect(parseModelRef("claude-3-5-sonnet", "anthropic")).toEqual({
+      expect(parseModelRef("claude-opus-4-5-20251101", "anthropic")).toEqual({
         provider: "anthropic",
-        model: "claude-3-5-sonnet",
+        model: "claude-opus-4-5-20251101",
       });
     });
 
@@ -95,7 +95,7 @@ describe("model-selection", () => {
         agents: {
           defaults: {
             models: {
-              "anthropic/claude-3-5-sonnet": { alias: "fast" },
+              "anthropic/claude-opus-4-5-20251101": { alias: "fast" },
               "openai/gpt-4o": { alias: "smart" },
             },
           },
@@ -109,10 +109,10 @@ describe("model-selection", () => {
 
       expect(index.byAlias.get("fast")?.ref).toEqual({
         provider: "anthropic",
-        model: "claude-3-5-sonnet",
+        model: "claude-opus-4-5-20251101",
       });
       expect(index.byAlias.get("smart")?.ref).toEqual({ provider: "openai", model: "gpt-4o" });
-      expect(index.byKey.get(modelKey("anthropic", "claude-3-5-sonnet"))).toEqual(["fast"]);
+      expect(index.byKey.get(modelKey("anthropic", "claude-opus-4-5-20251101"))).toEqual(["fast"]);
     });
   });
 
@@ -150,7 +150,7 @@ describe("model-selection", () => {
       const cfg: Partial<OpenClawConfig> = {
         agents: {
           defaults: {
-            model: { primary: "claude-3-5-sonnet" },
+            model: { primary: "claude-opus-4-5-20251101" },
           },
         },
       };
@@ -161,9 +161,9 @@ describe("model-selection", () => {
         defaultModel: "gemini-pro",
       });
 
-      expect(result).toEqual({ provider: "anthropic", model: "claude-3-5-sonnet" });
+      expect(result).toEqual({ provider: "anthropic", model: "claude-opus-4-5-20251101" });
       expect(warnSpy).toHaveBeenCalledWith(
-        expect.stringContaining('Falling back to "anthropic/claude-3-5-sonnet"'),
+        expect.stringContaining('Falling back to "anthropic/claude-opus-4-5-20251101"'),
       );
       warnSpy.mockRestore();
     });

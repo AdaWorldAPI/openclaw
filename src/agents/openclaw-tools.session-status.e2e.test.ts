@@ -48,7 +48,7 @@ vi.mock("../agents/model-catalog.js", () => ({
     },
     {
       provider: "anthropic",
-      id: "claude-sonnet-4-5",
+      id: "claude-opus-4-5",
       name: "Sonnet",
       contextWindow: 200000,
     },
@@ -219,7 +219,7 @@ describe("session_status tool", () => {
         sessionId: "s1",
         updatedAt: 10,
         providerOverride: "anthropic",
-        modelOverride: "claude-sonnet-4-5",
+        modelOverride: "claude-opus-4-5",
         authProfileOverride: "p1",
       },
     });

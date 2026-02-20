@@ -81,16 +81,16 @@ describe("buildEmbeddedRunPayloads", () => {
   it("includes provider and model context for billing errors", () => {
     const payloads = buildPayloads({
       lastAssistant: makeAssistant({
-        model: "claude-3-5-sonnet",
+        model: "claude-opus-4-5-20251101",
         errorMessage: "insufficient credits",
         content: [{ type: "text", text: "insufficient credits" }],
       }),
       provider: "Anthropic",
-      model: "claude-3-5-sonnet",
+      model: "claude-opus-4-5-20251101",
     });
 
     expect(payloads).toHaveLength(1);
-    expect(payloads[0]?.text).toBe(formatBillingErrorMessage("Anthropic", "claude-3-5-sonnet"));
+    expect(payloads[0]?.text).toBe(formatBillingErrorMessage("Anthropic", "claude-opus-4-5-20251101"));
     expect(payloads[0]?.isError).toBe(true);
   });
 

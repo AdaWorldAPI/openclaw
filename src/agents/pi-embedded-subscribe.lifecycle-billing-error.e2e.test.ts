@@ -20,7 +20,7 @@ describe("subscribeEmbeddedPiSession lifecycle billing errors", () => {
       stopReason: "error",
       errorMessage: "insufficient credits",
       provider: "Anthropic",
-      model: "claude-3-5-sonnet",
+      model: "claude-opus-4-5-20251101",
     } as AssistantMessage;
 
     emit({ type: "message_update", message: assistantMessage });
@@ -30,6 +30,6 @@ describe("subscribeEmbeddedPiSession lifecycle billing errors", () => {
       (call) => call[0]?.stream === "lifecycle" && call[0]?.data?.phase === "error",
     );
     expect(lifecycleError).toBeDefined();
-    expect(lifecycleError?.[0]?.data?.error).toContain("Anthropic (claude-3-5-sonnet)");
+    expect(lifecycleError?.[0]?.data?.error).toContain("Anthropic (claude-opus-4-5-20251101)");
   });
 });

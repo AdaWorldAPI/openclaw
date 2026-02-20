@@ -30,22 +30,22 @@ describe("agents/model-forward-compat", () => {
     const registry = createRegistry({
       "anthropic/claude-opus-4-5": createTemplateModel("anthropic", "claude-opus-4-5"),
     });
-    const model = resolveForwardCompatModel("anthropic", "claude-opus-4-6", registry);
-    expect(model?.id).toBe("claude-opus-4-6");
-    expect(model?.name).toBe("claude-opus-4-6");
+    const model = resolveForwardCompatModel("anthropic", "claude-opus-4-5", registry);
+    expect(model?.id).toBe("claude-opus-4-5");
+    expect(model?.name).toBe("claude-opus-4-5");
     expect(model?.provider).toBe("anthropic");
   });
 
   it("resolves anthropic sonnet 4.6 dot variant with suffix", () => {
     const registry = createRegistry({
-      "anthropic/claude-sonnet-4.5-20260219": createTemplateModel(
+      "anthropic/claude-opus-4-5-20251101": createTemplateModel(
         "anthropic",
-        "claude-sonnet-4.5-20260219",
+        "claude-opus-4-5-20251101",
       ),
     });
-    const model = resolveForwardCompatModel("anthropic", "claude-sonnet-4.6-20260219", registry);
-    expect(model?.id).toBe("claude-sonnet-4.6-20260219");
-    expect(model?.name).toBe("claude-sonnet-4.6-20260219");
+    const model = resolveForwardCompatModel("anthropic", "claude-opus-4-5-20251101", registry);
+    expect(model?.id).toBe("claude-opus-4-5-20251101");
+    expect(model?.name).toBe("claude-opus-4-5-20251101");
     expect(model?.provider).toBe("anthropic");
   });
 
@@ -53,7 +53,7 @@ describe("agents/model-forward-compat", () => {
     const registry = createRegistry({
       "anthropic/claude-opus-4-5": createTemplateModel("anthropic", "claude-opus-4-5"),
     });
-    const model = resolveForwardCompatModel("openai", "claude-opus-4-6", registry);
+    const model = resolveForwardCompatModel("openai", "claude-opus-4-5", registry);
     expect(model).toBeUndefined();
   });
 });

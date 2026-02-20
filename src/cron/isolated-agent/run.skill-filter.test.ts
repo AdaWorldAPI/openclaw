@@ -354,7 +354,7 @@ describe("runCronIsolatedAgentTurn — skill filter", () => {
 
   describe("model fallbacks", () => {
     const defaultFallbacks = [
-      "anthropic/claude-opus-4-6",
+      "anthropic/claude-opus-4-5",
       "google-gemini-cli/gemini-3-pro-preview",
       "nvidia/deepseek-ai/deepseek-v3.2",
     ];
@@ -380,16 +380,16 @@ describe("runCronIsolatedAgentTurn — skill filter", () => {
       const model = callCfg?.agents?.defaults?.model as
         | { primary?: string; fallbacks?: string[] }
         | undefined;
-      expect(model?.primary).toBe("anthropic/claude-sonnet-4-5");
+      expect(model?.primary).toBe("anthropic/claude-opus-4-5");
       expect(model?.fallbacks).toEqual(defaultFallbacks);
     }
 
     it("preserves defaults when agent overrides primary as string", async () => {
-      await expectPrimaryOverridePreservesDefaults("anthropic/claude-sonnet-4-5");
+      await expectPrimaryOverridePreservesDefaults("anthropic/claude-opus-4-5");
     });
 
     it("preserves defaults when agent overrides primary in object form", async () => {
-      await expectPrimaryOverridePreservesDefaults({ primary: "anthropic/claude-sonnet-4-5" });
+      await expectPrimaryOverridePreservesDefaults({ primary: "anthropic/claude-opus-4-5" });
     });
   });
 });

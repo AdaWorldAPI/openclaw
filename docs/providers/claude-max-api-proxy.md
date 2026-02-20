@@ -65,7 +65,7 @@ curl http://localhost:3456/v1/models
 curl http://localhost:3456/v1/chat/completions \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "claude-opus-4",
+    "model": "claude-opus-4-5",
     "messages": [{"role": "user", "content": "Hello!"}]
   }'
 ```
@@ -82,7 +82,7 @@ You can point OpenClaw at the proxy as a custom OpenAI-compatible endpoint:
   },
   agents: {
     defaults: {
-      model: { primary: "openai/claude-opus-4" },
+      model: { primary: "openai/claude-opus-4-5" },
     },
   },
 }
@@ -92,9 +92,9 @@ You can point OpenClaw at the proxy as a custom OpenAI-compatible endpoint:
 
 | Model ID          | Maps To         |
 | ----------------- | --------------- |
-| `claude-opus-4`   | Claude Opus 4   |
-| `claude-sonnet-4` | Claude Sonnet 4 |
-| `claude-haiku-4`  | Claude Haiku 4  |
+| `claude-opus-4-5`   | Claude Opus 4   |
+| `claude-opus-4-5` | Claude Sonnet 4 |
+| `claude-opus-4-5`  | Claude Haiku 4  |
 
 ## Auto-Start on macOS
 

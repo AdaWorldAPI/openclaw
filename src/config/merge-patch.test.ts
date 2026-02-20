@@ -95,7 +95,7 @@ describe("applyMergePatch", () => {
     };
     const patch = {
       agents: {
-        list: [{ id: "main", model: "claude-opus-4-20250918" }],
+        list: [{ id: "main", model: "claude-opus-4-5-20251101" }],
       },
     };
 
@@ -108,7 +108,7 @@ describe("applyMergePatch", () => {
     };
     expect(merged.agents?.list).toHaveLength(4);
     const main = merged.agents?.list?.find((entry) => entry.id === "main");
-    expect(main?.model).toBe("claude-opus-4-20250918");
+    expect(main?.model).toBe("claude-opus-4-5-20251101");
     expect(main?.default).toBe(true);
     expect(main?.workspace).toBe("/home/main");
     expect(merged.agents?.list?.find((entry) => entry.id === "ota")?.workspace).toBe("/home/ota");

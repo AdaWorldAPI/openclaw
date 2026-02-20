@@ -270,7 +270,7 @@ describe("sanitizeSessionHistory", () => {
       messages,
       modelApi: "anthropic-messages",
       provider: "anthropic",
-      modelId: "claude-opus-4-6",
+      modelId: "claude-opus-4-5",
       sessionManager,
       sessionId: TEST_SESSION_ID,
     });

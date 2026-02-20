@@ -317,7 +317,7 @@ Minimal `~/.openclaw/openclaw.json` (model + defaults):
 ```json5
 {
   agent: {
-    model: "anthropic/claude-opus-4-6",
+    model: "anthropic/claude-opus-4-5",
   },
 }
 ```
